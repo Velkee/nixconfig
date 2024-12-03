@@ -10,5 +10,6 @@
     ./modules/git.nix
     ./modules/strawberry.nix
     ./modules/dolphin.nix
+    ./modules/ssh.nix
   ];
 }
