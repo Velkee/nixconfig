@@ -33,6 +33,7 @@
         "$mod, F, exec, firefox"
         "$mod, R, exec, wofi --show drun"
         "$mod, E, exec, dolphin"
+        ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
       ]
       ++ (
         builtins.concatLists (builtins.genList
@@ -58,4 +59,10 @@
       };
     };
   };
+
+  home.packages = with pkgs; [
+    grim
+    slurp
+    wl-clipboard
+  ];
 }
