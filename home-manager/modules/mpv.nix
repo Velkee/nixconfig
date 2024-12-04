@@ -57,7 +57,7 @@ in {
     profiles = {
       "4k" = {
         profile-desc = "4k";
-        profile-cond = "(width ==3840 and height <=2160)";
+        profile-cond = "(width <=3840 and height ==2160)";
         deband = "no";
         glsl-shader =
           if monitors.mainHeight < 2160 then
@@ -67,7 +67,7 @@ in {
       };
       "1440p" = {
         profile-desc = "1440p";
-        profile-cond = "(width ==2560 and height <=1440)";
+        profile-cond = "(width <=2560 and height ==1440)";
         glsl-shader =
           if monitors.mainHeight < 1440 then
             "${mpvShaderDir}/SSimDownscaler.glsl"
@@ -78,7 +78,7 @@ in {
       };
       full-hd = {
         profile-desc = "full-hd";
-        profile-cond = "(width ==1920 and height <=1080)";
+        profile-cond = "(width <=1920 and height ==1080)";
         glsl-shader =
           if monitors.mainHeight < 1080 then
             "${mpvShaderDir}/SSimDownscaler.glsl"
@@ -89,7 +89,7 @@ in {
       };
       hd = {
         profile-desc = "hd";
-        profile-cond = "(width ==1280 and height <=720)";
+        profile-cond = "(width <=1280 and height ==720)";
         glsl-shader =
           if monitors.mainHeight < 720 then
             "${mpvShaderDir}/SSimDownscaler.glsl"
