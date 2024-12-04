@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, monitors, ... }:
 
 {
   programs.kitty.enable = true;
@@ -9,10 +9,7 @@
 
     settings = {
       "$mod" = "SUPER";
-      monitor = [
-        "DP-3, 2560x1440@144, 0x0, 1, vrr, 1"
-        "DP-2, 2560x1440@60, -2560x0, 1"
-      ];
+      monitor = monitors.hyprland;
       exec-once = [
         "waybar"
         "fcitx5"

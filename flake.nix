@@ -26,15 +26,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              displays = {
-                main = {
-                  height = 1440;
-                  width = 2560;
-                };
-                secondary = {
-                  height = 1440;
-                  width = 2560;
-                };
+              monitors = {
+                hyprland = [
+                  "DP-3, 2560x1440@144, 0x0, 1, vrr, 1"
+                  "DP-2, 2560x1440@60, -2560x0, 1"
+                ];
+                mainHeight = 1440;
               };
             };
 

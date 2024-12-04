@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, monitors, ... }:
 
 let mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
 in {
@@ -57,23 +57,46 @@ in {
     profiles = {
       "4k" = {
         profile-desc = "4k";
-        profile-cond = "((width ==3840 and height <=2160))";
+        profile-cond = "(width ==3840 and height <=2160)";
         deband = "no";
-        glsl-shader = "${mpvShaderDir}/SSSimDownscaler.glsl";
+        glsl-shader =
+          if monitors.mainHeight < 2160 then
+            "${mpvShaderDir}/SSSimDownscaler.glsl"
+          else
+            "";
       };
       "1440p" = {
         profile-desc = "1440p";
-        profile-cond = "((width ==2560 and height <=1440))";
+        profile-cond = "(width ==2560 and height <=1440)";
+        glsl-shader =
+          if monitors.mainHeight < 1440 then
+            "${mpvShaderDir}/SSSimDownscaler.glsl"
+          else if monitors.mainHeight > 1440 then
+            "${mpvShaderDir}/ArtCNN_C4F16.glsl"
+          else
+            "";
       };
       full-hd = {
         profile-desc = "full-hd";
-        profile-cond = "((width ==1920 and height <=1080) and not p[\"video-frame-info/interlaced\"])";
-        glsl-shader = "${mpvShaderDir}/ArtCNN_C4F16.glsl";
+        profile-cond = "(width ==1920 and height <=1080)";
+        glsl-shader =
+          if monitors.mainHeight < 1080 then
+            "${mpvShaderDir}/SSSimDownscaler.glsl"
+          else if monitors.mainHeight > 1080 then
+            "${mpvShaderDir}/ArtCNN_C4F16.glsl"
+          else
+            "";
       };
       hd = {
         profile-desc = "hd";
-        profile-cond = "((width ==1280 and height ==720) and not p[\"video-frame-info/interlaced\"])";
-        glsl-shader = "${mpvShaderDir}/ArtCNN_C4F16.glsl";
+        profile-cond = "(width ==1280 and height <=720)";
+        glsl-shader =
+          if monitors.mainHeight < 720 then
+            "${mpvShaderDir}/SSSimDownscaler.glsl"
+          else if monitors.mainHeight > 720 then
+            "${mpvShaderDir}/ArtCNN_C4F16.glsl"
+          else
+            "";
       };
       sdtv-ntcs = {
         profile-desc = "sdtv-ntcs";
