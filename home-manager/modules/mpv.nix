@@ -61,7 +61,7 @@ in {
         deband = "no";
         glsl-shader =
           if monitors.mainHeight < 2160 then
-            "${mpvShaderDir}/SSSimDownscaler.glsl"
+            "${mpvShaderDir}/SSimDownscaler.glsl"
           else
             "";
       };
@@ -70,7 +70,7 @@ in {
         profile-cond = "(width ==2560 and height <=1440)";
         glsl-shader =
           if monitors.mainHeight < 1440 then
-            "${mpvShaderDir}/SSSimDownscaler.glsl"
+            "${mpvShaderDir}/SSimDownscaler.glsl"
           else if monitors.mainHeight > 1440 then
             "${mpvShaderDir}/ArtCNN_C4F16.glsl"
           else
@@ -81,7 +81,7 @@ in {
         profile-cond = "(width ==1920 and height <=1080)";
         glsl-shader =
           if monitors.mainHeight < 1080 then
-            "${mpvShaderDir}/SSSimDownscaler.glsl"
+            "${mpvShaderDir}/SSimDownscaler.glsl"
           else if monitors.mainHeight > 1080 then
             "${mpvShaderDir}/ArtCNN_C4F16.glsl"
           else
@@ -92,7 +92,7 @@ in {
         profile-cond = "(width ==1280 and height <=720)";
         glsl-shader =
           if monitors.mainHeight < 720 then
-            "${mpvShaderDir}/SSSimDownscaler.glsl"
+            "${mpvShaderDir}/SSimDownscaler.glsl"
           else if monitors.mainHeight > 720 then
             "${mpvShaderDir}/ArtCNN_C4F16.glsl"
           else
@@ -135,6 +135,14 @@ in {
       };
     in
     "${fetch}/GLSL/ArtCNN_C4F16.glsl";
+  xdg.configFile."mpv/shaders/SSimDownscaler.glsl".source =
+    let
+      fetch = builtins.fetchGit {
+        url = "https://gist.github.com/36508af3ffc84410fe39761d6969be10.git";
+        rev = "38992bce7f9ff844f800820df0908692b65bb74a";
+      };
+    in
+    "${fetch}/SSimDownscaler.glsl";
 
   home.packages = with pkgs; [
     jellyfin-mpv-shim
