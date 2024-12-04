@@ -12,6 +12,7 @@
       ../../stylix.nix
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [ "fbdev=1" "nvidia_drm.fbdev=1" ];
   boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
   boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
