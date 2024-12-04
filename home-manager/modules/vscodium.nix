@@ -9,4 +9,8 @@
       jnoortheen.nix-ide
     ];
   };
+
+  home.packages = with pkgs; [
+    nixpkgs-fmt
+  ];
 }
