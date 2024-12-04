@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" "sr_mod" ];
@@ -14,42 +15,49 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
+    {
+      device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
       fsType = "btrfs";
       options = [ "subvol=root" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
+    {
+      device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
   fileSystems."/.swap" =
-    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
+    {
+      device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
       fsType = "btrfs";
       options = [ "subvol=swap" ];
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
+    {
+      device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E6AA-5EAF";
+    {
+      device = "/dev/disk/by-uuid/E6AA-5EAF";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   fileSystems."/media/games" =
-    { device = "/dev/disk/by-uuid/83df2e5a-4cef-481f-8115-df3fb53b1b2f";
+    {
+      device = "/dev/disk/by-uuid/83df2e5a-4cef-481f-8115-df3fb53b1b2f";
       fsType = "btrfs";
     };
 
   fileSystems."/media/storage" =
-    { device = "/dev/disk/by-uuid/7abd4126-372f-49c0-8753-d905d9a479d6";
+    {
+      device = "/dev/disk/by-uuid/7abd4126-372f-49c0-8753-d905d9a479d6";
       fsType = "btrfs";
     };
 

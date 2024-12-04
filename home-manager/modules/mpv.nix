@@ -40,7 +40,7 @@ in {
       dither = "fruit";
 
       scale-antiring = 0.6;
-      
+
       target-prim = "auto";
       target-trc = "auto";
       video-output-levels = "full";
@@ -96,18 +96,22 @@ in {
     url = "https://pastebin.com/raw/yacMe6EZ";
     sha256 = "1lf0kqb3yxgrx56v5171y3rkgm9wc4bpxibyz7q8f5v5252bdjyx";
   };
-  xdg.configFile."mpv/shaders/CfL_Predictions.glsl".source = 
-    let fetch = builtins.fetchGit {
-      url = "https://github.com/Artoriuz/glsl-chroma-from-luma-prediction";
-      rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
-    };
-    in "${fetch}/CfL_Prediction.glsl";
+  xdg.configFile."mpv/shaders/CfL_Predictions.glsl".source =
+    let
+      fetch = builtins.fetchGit {
+        url = "https://github.com/Artoriuz/glsl-chroma-from-luma-prediction";
+        rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
+      };
+    in
+    "${fetch}/CfL_Prediction.glsl";
   xdg.configFile."mpv/shaders/ArtCNN_C4F16.glsl".source =
-    let fetch = builtins.fetchGit {
-      url = "https://github.com/Artoriuz/ArtCNN";
-      rev = "dfa456ffb242a07de8bd15296ffa18f018d62b93";
-    };
-    in "${fetch}/GLSL/ArtCNN_C4F16.glsl";
+    let
+      fetch = builtins.fetchGit {
+        url = "https://github.com/Artoriuz/ArtCNN";
+        rev = "dfa456ffb242a07de8bd15296ffa18f018d62b93";
+      };
+    in
+    "${fetch}/GLSL/ArtCNN_C4F16.glsl";
 
   home.packages = with pkgs; [
     jellyfin-mpv-shim

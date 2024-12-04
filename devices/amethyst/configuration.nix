@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./bundle.nix
       ../../stylix.nix
@@ -26,7 +27,7 @@
     "/media/storage".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
   };
 
-  swapDevices = [ { device= "/.swap/swapfile"; } ];
+  swapDevices = [{ device = "/.swap/swapfile"; }];
 
   services.btrfs.autoScrub.enable = true;
 
@@ -68,7 +69,7 @@
 
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  
+
   nixpkgs.config.allowUnfree = true;
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
