@@ -7,5 +7,6 @@
     ../modules/fcitx5.nix
     ../modules/audio.nix
     ../modules/tailscale.nix
+    ../modules/wine.nix
   ];
 }
