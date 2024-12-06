@@ -22,6 +22,8 @@
 
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+        
+        "MOZ_DISABLE_RDD_SANDBOX,1"
       ];
       bind = [
         "$mod, Q, exec, kitty"
