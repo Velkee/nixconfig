@@ -11,5 +11,6 @@
     ./modules/strawberry.nix
     ./modules/dolphin.nix
     ./modules/ssh.nix
+    ./modules/bash.nix
   ];
 }
