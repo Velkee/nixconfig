@@ -112,6 +112,7 @@ in {
     scripts = with pkgs.mpvScripts; [
       uosc
       thumbfast
+      mpvacious
     ];
   };
 
