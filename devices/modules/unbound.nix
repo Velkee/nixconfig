@@ -24,6 +24,10 @@
           ];
           forward-tls-upstream = true;
         }
+        {
+          name = "ts.net";
+          forward-addr = "100.100.100.100";
+        }
       ];
       remote-control.control-enable = true;
     };
