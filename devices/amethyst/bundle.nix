@@ -8,5 +8,6 @@
     ../modules/audio.nix
     ../modules/tailscale.nix
     ../modules/wine.nix
+    ../modules/unbound.nix
   ];
 }
