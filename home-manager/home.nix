@@ -13,6 +13,7 @@
     bitwarden-desktop
     anki
     hydrus
+    osu-lazer-bin
   ];
 
   home.stateVersion = "25.05";
