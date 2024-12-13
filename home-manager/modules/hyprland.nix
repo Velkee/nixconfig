@@ -13,6 +13,7 @@
       exec-once = [
         "waybar"
         "fcitx5"
+        "xsetroot -cursor_name left_ptr"
       ];
       env = [
         "GBM_BACKEND,nvidia-drm"
@@ -63,5 +64,6 @@
     grim
     slurp
     wl-clipboard
+    xorg.xsetroot
   ];
 }
