@@ -12,5 +12,6 @@
     ./modules/dolphin.nix
     ./modules/ssh.nix
     ./modules/bash.nix
+    ./modules/xiv.nix
   ];
 }
