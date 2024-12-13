@@ -114,6 +114,19 @@ in {
       thumbfast
       mpvacious
     ];
+    scriptOpts = {
+      subs2srs = {
+        deck_name = "Lapis";
+        model_name = "Lapis";
+        audio_field = "ExpressionAudio";
+        image_field = "Picture";
+        note_tag = "アニメ::%n";
+
+        autoclip_method = "clipboard";
+
+        snapshot_format = "webp";
+      };
+    };
   };
 
   xdg.configFile."mpv/shaders/noise_static_luma.hook".source = builtins.fetchurl {
