@@ -6,13 +6,15 @@
       dejavu_fonts
       ipafont
       nerd-fonts.fira-code
+      noto-fonts-color-emoji
     ];
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "DejaVu Serif" "IPAMincho" ];
-        sansSerif = [ "DejaVu Sans" "IPAGothic" ];
+        serif = [ "IPAMincho" "DejaVu Serif" ];
+        sansSerif = [ "IPAGothic" "DejaVu Sans" ];
         monospace = [ "FiraCode Nerd Font Mono" ];
+        emoji = [ "Noto Color Emoji" ];
       };
     };
   };

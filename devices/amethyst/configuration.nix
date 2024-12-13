@@ -49,7 +49,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
     "nb_NO.UTF-8/UTF-8"
@@ -109,6 +109,8 @@
 
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  programs.nix-ld.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
