@@ -13,5 +13,6 @@
     ./modules/ssh.nix
     ./modules/bash.nix
     ./modules/xiv.nix
+    ./modules/secret-service.nix
   ];
 }
