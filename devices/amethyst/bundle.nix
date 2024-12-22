@@ -9,5 +9,6 @@
     ../modules/tailscale.nix
     ../modules/wine.nix
     ../modules/unbound.nix
+    ../modules/udisks.nix
   ];
 }
