@@ -14,5 +14,8 @@
     ./modules/bash.nix
     ./modules/xiv.nix
     ./modules/secret-service.nix
+    ./modules/clonehero.nix
+    ./modules/ark.nix
+    ./modules/emulation.nix
   ];
 }
