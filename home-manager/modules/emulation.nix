@@ -5,7 +5,7 @@
     mgba
     melonDS
     dolphin-emu
-    lime3ds
+    # lime3ds
     ryujinx
     duckstation
     pcsx2
