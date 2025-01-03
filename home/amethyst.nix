@@ -25,9 +25,9 @@ in
     anki
     hydrus
     osu-lazer-bin
-    kdePackages.ark
-    kdePackages.dolphin
-    kdePackages.gwenview
+    ark
+    dolphin
+    gwenview
     clonehero
     xivlauncher
     strawberry-qt6

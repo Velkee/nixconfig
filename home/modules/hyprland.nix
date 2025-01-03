@@ -13,6 +13,7 @@
       "$mod" = "SUPER";
       exec-once = [
         "waybar"
+        "hyprpaper"
         "xsetroot -cursor_name left_ptr"
       ];
       env = [
@@ -52,6 +53,17 @@
       decoration = {
         rounding = 10;
       };
+    };
+  };
+
+  services.hyprpaper = {
+    enable = true;
+
+    settings = {
+      splash = false;
+      preload = [ "/home/velkee/nix/wallpaper.png" ];
+
+      wallpaper = ", /home/velkee/nix/wallpaper.png";
     };
   };
 
