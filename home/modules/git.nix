@@ -41,4 +41,10 @@
     enable = true;
     pinentryPackage = pkgs.pinentry-curses;
   };
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      export GPG_TTY=$(tty)
+    '';
+  };
 }

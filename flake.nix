@@ -6,43 +6,36 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    stylix.url = "github:danth/stylix";
-
   };
 
-  outputs =
+  outputs = inputs @
     {
+      self,
       nixpkgs,
       home-manager,
-      stylix,
       ...
     }:
     let
       system = "x86_64-linux";
+      username = "velkee";
+      specialArgs = {inherit username;};
     in
     {
       nixosConfigurations.amethyst = nixpkgs.lib.nixosSystem {
         inherit system;
+        inherit specialArgs;
         modules = [
-          ./devices/amethyst/configuration.nix
-          stylix.nixosModules.stylix
+          ./hosts/amethyst/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = {
-              monitors = {
-                hyprland = [
-                  "DP-3, 2560x1440@144, 0x0, 1, vrr, 1"
-                  "DP-2, 2560x1440@60, -2560x0, 1"
-                ];
-                mainHeight = 1440;
-              };
-            };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = inputs // specialArgs;
 
-            home-manager.users.velkee = import ./home-manager/home.nix;
+              users.${username} = import ./home/amethyst.nix;
+            };
           }
         ];
       };

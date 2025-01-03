@@ -3,28 +3,21 @@
 {
   programs.kitty.enable = true;
   programs.wofi.enable = true;
+  programs.waybar = {
+    enable = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
-
     settings = {
       "$mod" = "SUPER";
-      monitor = monitors.hyprland;
       exec-once = [
         "waybar"
-        "fcitx5"
         "xsetroot -cursor_name left_ptr"
       ];
       env = [
-        "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GL_GSYNC_ALLOWED,1"
-
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
-
-        "MOZ_DISABLE_RDD_SANDBOX,1"
       ];
       bind =
         [
