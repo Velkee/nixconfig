@@ -6,7 +6,10 @@
     package = pkgs.unbound-full;
     settings = {
       server = {
-        interface = [ "127.0.0.1" "::1" ];
+        interface = [
+          "127.0.0.1"
+          "::1"
+        ];
         harden-glue = true;
         harden-dnssec-stripped = true;
         use-caps-for-id = false;

@@ -2,32 +2,78 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./bundle.nix
-      ../../stylix.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./bundle.nix
+    ../../stylix.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
-  boot.kernelParams = [ "fbdev=1" "nvidia_drm.fbdev=1" ];
-  boot.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
-  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+  boot.kernelParams = [
+    "fbdev=1"
+    "nvidia_drm.fbdev=1"
+  ];
+  boot.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
+  boot.initrd.kernelModules = [
+    "nvidia"
+    "nvidia_modeset"
+    "nvidia_uvm"
+    "nvidia_drm"
+  ];
 
   fileSystems = {
-    "/".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
-    "/home".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
-    "/nix".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
-    "/.swap".options = [ "noatime" "commit=120" "autodefrag" ];
-    "/media/games".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
-    "/media/storage".options = [ "compress-force=zstd" "noatime" "commit=120" "autodefrag" ];
+    "/".options = [
+      "compress-force=zstd"
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
+    "/home".options = [
+      "compress-force=zstd"
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
+    "/nix".options = [
+      "compress-force=zstd"
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
+    "/.swap".options = [
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
+    "/media/games".options = [
+      "compress-force=zstd"
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
+    "/media/storage".options = [
+      "compress-force=zstd"
+      "noatime"
+      "commit=120"
+      "autodefrag"
+    ];
   };
 
-  swapDevices = [{ device = "/.swap/swapfile"; }];
+  swapDevices = [ { device = "/.swap/swapfile"; } ];
 
   services.btrfs.autoScrub.enable = true;
 
@@ -67,8 +113,10 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.settings.auto-optimise-store = true;
 
   nixpkgs.config.allowUnfree = true;
@@ -157,4 +205,3 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-

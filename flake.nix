@@ -11,7 +11,13 @@
 
   };
 
-  outputs = { nixpkgs, home-manager, stylix, ... }:
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      stylix,
+      ...
+    }:
     let
       system = "x86_64-linux";
     in

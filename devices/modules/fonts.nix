@@ -11,8 +11,14 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "IPAMincho" "DejaVu Serif" ];
-        sansSerif = [ "IPAGothic" "DejaVu Sans" ];
+        serif = [
+          "IPAMincho"
+          "DejaVu Serif"
+        ];
+        sansSerif = [
+          "IPAGothic"
+          "DejaVu Sans"
+        ];
         monospace = [ "FiraCode Nerd Font Mono" ];
         emoji = [ "Noto Color Emoji" ];
       };

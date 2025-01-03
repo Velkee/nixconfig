@@ -14,7 +14,12 @@
   };
 
   xdg.configFile = {
-    "Kvantum/catppuccin-mocha-pink".source = "${(pkgs.catppuccin-kvantum.override { accent = "pink"; variant = "mocha"; })}/share/Kvantum/catppuccin-mocha-pink";
+    "Kvantum/catppuccin-mocha-pink".source = "${
+      (pkgs.catppuccin-kvantum.override {
+        accent = "pink";
+        variant = "mocha";
+      })
+    }/share/Kvantum/catppuccin-mocha-pink";
     "Kvantum/kvantum.kvconfig".text = "[General]\ntheme=catppuccin-mocha-pink";
   };
 }

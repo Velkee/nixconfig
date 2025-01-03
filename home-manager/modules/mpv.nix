@@ -1,7 +1,14 @@
-{ pkgs, config, monitors, ... }:
+{
+  pkgs,
+  config,
+  monitors,
+  ...
+}:
 
-let mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
-in {
+let
+  mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
+in
+{
   programs.mpv = {
     enable = true;
     config = {
@@ -59,11 +66,7 @@ in {
         profile-desc = "4k";
         profile-cond = "(width <=3840 and height ==2160)";
         deband = "no";
-        glsl-shader =
-          if monitors.mainHeight < 2160 then
-            "${mpvShaderDir}/SSimDownscaler.glsl"
-          else
-            "";
+        glsl-shader = if monitors.mainHeight < 2160 then "${mpvShaderDir}/SSimDownscaler.glsl" else "";
       };
       "1440p" = {
         profile-desc = "1440p";
