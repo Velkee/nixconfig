@@ -8,10 +8,12 @@
   };
   gtk.theme = {
     name = "catppuccin-mocha-pink-standard";
-    package = (pkgs.catppuccin-gtk.override {
-      accents = [ "pink" ];
-      variant = "mocha";
-    });
+    package = (
+      pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        variant = "mocha";
+      }
+    );
   };
   gtk.cursorTheme = {
     name = "Catppuccin Mocha Pink";

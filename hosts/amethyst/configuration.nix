@@ -17,7 +17,7 @@
     ../../modules/tailscale.nix
     ../../modules/unbound.nix
     ../../modules/wine.nix
-    
+
     ./filesystems.nix
     ./graphics.nix
   ];

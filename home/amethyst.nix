@@ -1,4 +1,9 @@
-{ pkgs, config, username, ... }:
+{
+  pkgs,
+  config,
+  username,
+  ...
+}:
 
 let
   mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";

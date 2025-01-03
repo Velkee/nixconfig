@@ -8,7 +8,7 @@
 {
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
   };
 
   nix.settings = {
@@ -25,7 +25,7 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
-  
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
@@ -46,7 +46,7 @@
     LC_TELEPHONE = "nb_NO.UTF-8";
     LC_TIME = "nb_NO.UTF-8";
   };
-  
+
   console = {
     keyMap = "no";
   };
@@ -73,7 +73,7 @@
       ];
       monospace = [ "FiraCode Nerd Font Mono" ];
       emoji = [ "Noto Color Emoji" ];
-      };
+    };
   };
 
   services = {

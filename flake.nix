@@ -8,8 +8,8 @@
     };
   };
 
-  outputs = inputs @
-    {
+  outputs =
+    inputs@{
       self,
       nixpkgs,
       home-manager,
@@ -18,7 +18,7 @@
     let
       system = "x86_64-linux";
       username = "velkee";
-      specialArgs = {inherit username;};
+      specialArgs = { inherit username; };
     in
     {
       nixosConfigurations.amethyst = nixpkgs.lib.nixosSystem {
