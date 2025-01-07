@@ -20,6 +20,15 @@
       termguicolors = true;
     };
 
+    autoCmd = [
+      {
+        command = ":Neotree";
+        event = [
+          "VimEnter"
+        ];
+      }
+    ];
+
     colorschemes.catppuccin = {
       enable = true;
       settings = {
