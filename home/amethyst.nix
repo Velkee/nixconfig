@@ -22,6 +22,7 @@ in
     ./modules/firefox.nix
     ./modules/git.nix
     ./modules/hyprland.nix
+    ./modules/kitty.nix
     ./modules/mpv.nix
     ./modules/nixvim.nix
     ./modules/theme.nix

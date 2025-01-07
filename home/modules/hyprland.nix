@@ -1,7 +1,6 @@
-{ pkgs, monitors, ... }:
+{ pkgs, ... }:
 
 {
-  programs.kitty.enable = true;
   programs.wofi.enable = true;
   programs.waybar = {
     enable = true;
