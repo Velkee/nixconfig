@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -9,11 +7,11 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/system.nix
-    ../../modules/hyprland.nix
     ../../modules/fcitx5.nix
+    ../../modules/hyprland.nix
     ../../modules/sddm.nix
     ../../modules/steam.nix
+    ../../modules/system.nix
     ../../modules/tailscale.nix
     ../../modules/unbound.nix
     ../../modules/wine.nix
@@ -33,8 +31,8 @@
   i18n.defaultLocale = "ja_JP.UTF-8";
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
-    "nb_NO.UTF-8/UTF-8"
     "ja_JP.UTF-8/UTF-8"
+    "nb_NO.UTF-8/UTF-8"
   ];
 
   services.printing.enable = true;

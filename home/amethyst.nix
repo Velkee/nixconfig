@@ -30,32 +30,40 @@ in
   ];
 
   home.packages = with pkgs; [
-    vesktop
-    bitwarden-desktop
     anki
-    hydrus
-    osu-lazer-bin
     ark
+    bitwarden-desktop
+    clonehero
     dolphin
     gwenview
-    clonehero
-    xivlauncher
+    hydrus
+    osu-lazer-bin
     strawberry-qt6
+    vesktop
+    xivlauncher
+    (prismlauncher.override {
+      jdks = [
+        temurin-jre-bin
+        temurin-jre-bin-17
+        temurin-jre-bin-23
+        temurin-jre-bin-8
+      ];
+    })
   ];
 
   wayland.windowManager.hyprland = {
     settings = {
       monitor = [
-        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2"
         "DP-2, 2560x1440@60, -2560x0, 1"
+        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2"
       ];
       exec-once = [
         "fcitx5"
       ];
       env = [
         "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "LIBVA_DRIVER_NAME,nvidia"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "__GL_GSYNC_ALLOWED,1"
         "__GL_VRR_ALLOWED,1"
 
