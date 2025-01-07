@@ -16,7 +16,7 @@
     );
   };
   gtk.cursorTheme = {
-    name = "Catppuccin Mocha Pink";
+    name = "catppuccin-mocha-pink-cursors";
     package = pkgs.catppuccin-cursors.mochaPink;
   };
 

@@ -18,6 +18,12 @@
       env = [
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
+
+        "HYPRCURSOR_THEME,catppuccin-mocha-pink-cursor"
+        "HYPRCURSOR_SIZE,24"
+
+        "XCURSOR_THEME,catppuccin-mocha-pink-cursor"
+        "XCURSOR_SIZE,24"
       ];
       bind =
         [
