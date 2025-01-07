@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 
@@ -28,6 +29,8 @@
 
       extraPackages = with pkgs; [ nvidia-vaapi-driver ];
     };
+    nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
+
     nvidia.open = true;
     nvidia.modesetting.enable = true;
   };

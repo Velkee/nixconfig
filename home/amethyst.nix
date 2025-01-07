@@ -57,9 +57,14 @@ in
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "LIBVA_DRIVER_NAME,nvidia"
         "__GL_GSYNC_ALLOWED,1"
+        "__GL_VRR_ALLOWED,1"
 
         "MOZ_DISABLE_RDD_SANDBOX,1"
       ];
+      general = {
+        allow_tearing = true;
+      };
+      windowrulev2 = "immediate,fullscreen:1";
     };
   };
 
