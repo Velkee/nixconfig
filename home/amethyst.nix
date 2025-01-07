@@ -2,6 +2,7 @@
   pkgs,
   config,
   username,
+  inputs,
   ...
 }:
 
@@ -15,11 +16,14 @@ in
   home.homeDirectory = "/home/${username}";
 
   imports = [
+    inputs.nixvim.homeManagerModules.nixvim
+
     ./modules/emulation.nix
     ./modules/firefox.nix
     ./modules/git.nix
     ./modules/hyprland.nix
     ./modules/mpv.nix
+    ./modules/nixvim.nix
     ./modules/theme.nix
     ./modules/vscodium.nix
   ];

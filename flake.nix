@@ -6,19 +6,27 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
     inputs@{
-      self,
       nixpkgs,
       home-manager,
+      nixvim,
       ...
     }:
     let
       system = "x86_64-linux";
       username = "velkee";
-      specialArgs = { inherit username; };
+      specialArgs = {
+        inherit username;
+        inherit inputs;
+      };
     in
     {
       nixosConfigurations.amethyst = nixpkgs.lib.nixosSystem {
@@ -32,7 +40,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               backupFileExtension = "backup";
-              extraSpecialArgs = inputs // specialArgs;
+              extraSpecialArgs = specialArgs;
 
               users.${username} = import ./home/amethyst.nix;
             };
