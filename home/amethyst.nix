@@ -27,6 +27,7 @@ in
     ./modules/nixvim.nix
     ./modules/theme.nix
     ./modules/vscodium.nix
+    ./modules/waybar
   ];
 
   home.packages = with pkgs; [
