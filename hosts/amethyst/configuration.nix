@@ -9,6 +9,7 @@
 
     ../../modules/fcitx5.nix
     ../../modules/hyprland.nix
+    ../../modules/libvirt.nix
     ../../modules/sddm.nix
     ../../modules/steam.nix
     ../../modules/system.nix
