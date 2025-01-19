@@ -10,6 +10,7 @@
           "127.0.0.1"
           "::1"
         ];
+        tls-system-cert = true;
         harden-glue = true;
         harden-dnssec-stripped = true;
         use-caps-for-id = false;
@@ -17,6 +18,8 @@
         edns-buffer-size = 1232;
         hide-identity = true;
         hide-version = true;
+
+        domain-insecure = "ts.net";
       };
       forward-zone = [
         {
