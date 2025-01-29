@@ -11,6 +11,5 @@
     pcsx2
     ppsspp
     rpcs3
-    shadps4
   ];
 }
