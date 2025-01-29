@@ -42,6 +42,7 @@ in
     strawberry-qt6
     vesktop
     xivlauncher
+    pwvucontrol
     (prismlauncher.override {
       jdks = [
         temurin-jre-bin
@@ -56,7 +57,7 @@ in
     settings = {
       monitor = [
         "DP-2, 2560x1440@60, -2560x0, 1"
-        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2"
+        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10"
       ];
       exec-once = [
         "fcitx5"
@@ -74,6 +75,7 @@ in
         allow_tearing = true;
       };
       windowrulev2 = "immediate,fullscreen:1";
+      experimental.xx_color_management_v4 = true;
     };
   };
 
