@@ -34,7 +34,7 @@
           "$mod, F, exec, firefox"
           "$mod, R, exec, wofi --show drun"
           "$mod, E, exec, dolphin"
-          ", Print, exec, grim -g '$(slurp -d)' - | wl-copy"
+          ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
