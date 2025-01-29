@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   programs.wofi.enable = true;
@@ -8,6 +8,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
     settings = {
       "$mod" = "SUPER";
       exec-once = [
