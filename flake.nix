@@ -32,25 +32,34 @@
         inherit username;
         inherit inputs;
       };
+
+      mkSystem =
+        {
+          hostname,
+        }:
+        nixpkgs.lib.nixosSystem {
+          inherit system;
+          inherit specialArgs;
+
+          modules = [
+            ./hosts/${hostname}
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = specialArgs;
+
+                users.${username} = import ./home/amethyst.nix;
+              };
+            }
+          ];
+        };
     in
     {
-      nixosConfigurations.amethyst = nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        modules = [
-          ./hosts/amethyst/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "backup";
-              extraSpecialArgs = specialArgs;
 
-              users.${username} = import ./home/amethyst.nix;
-            };
-          }
-        ];
+      nixosConfigurations.amethyst = mkSystem {
+        hostname = "amethyst";
       };
 
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
