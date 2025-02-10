@@ -2,9 +2,15 @@
   mainBar = {
     layer = "bottom";
     position = "top";
-    modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+    modules-left = [
+      "hyprland/workspaces"
+      "hyprland/window"
+    ];
     modules-center = [ "clock" ];
-    modules-right = [ "wireplumber" "tray" ];
+    modules-right = [
+      "wireplumber"
+      "tray"
+    ];
 
     "hyprland/workspaces" = {
       all-outputs = true;
