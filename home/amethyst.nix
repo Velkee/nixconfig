@@ -25,6 +25,7 @@ in
     ./modules/kitty.nix
     ./modules/mpv.nix
     ./modules/nixvim.nix
+    ./modules/spotify.nix
     ./modules/theme.nix
     ./modules/vscodium.nix
     ./modules/waybar
@@ -38,11 +39,14 @@ in
     dolphin
     gwenview
     hydrus
+    krita
+    mangohud
+    obsidian
     osu-lazer-bin
+    pwvucontrol
     strawberry-qt6
     vesktop
     xivlauncher
-    pwvucontrol
     (prismlauncher.override {
       jdks = [
         temurin-jre-bin
@@ -57,7 +61,7 @@ in
     settings = {
       monitor = [
         "DP-2, 2560x1440@60, -2560x0, 1"
-        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10"
+        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2"
       ];
       exec-once = [
         "fcitx5"
@@ -71,10 +75,6 @@ in
 
         "MOZ_DISABLE_RDD_SANDBOX,1"
       ];
-      general = {
-        allow_tearing = true;
-      };
-      windowrulev2 = "immediate,fullscreen:1";
       experimental.xx_color_management_v4 = true;
     };
   };
