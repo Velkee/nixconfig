@@ -77,6 +77,9 @@
             rust = [
               "rustfmt"
             ];
+            nix = [
+              "nixfmt"
+            ];
           };
           format_on_save = {
             lsp_fallback = true;
@@ -160,15 +163,10 @@
           html.enable = true;
           cssls.enable = true;
           jsonls.enable = true;
-          rust_analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-            installRustfmt = true;
-          };
+          rust_analyzer.enable = true;
           yamlls.enable = true;
           taplo.enable = true;
-          nixd.enable = true;
+          nil_ls.enable = true;
         };
       };
 
