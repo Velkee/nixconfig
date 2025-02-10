@@ -33,13 +33,22 @@
         inherit inputs;
       };
 
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+       };
+      };
+
       mkSystem =
         {
           hostname,
+          stateVersion,
         }:
         nixpkgs.lib.nixosSystem {
           inherit system;
           inherit specialArgs;
+          inherit pkgs;
 
           modules = [
             ./hosts/${hostname}
@@ -50,8 +59,23 @@
                 useUserPackages = true;
                 extraSpecialArgs = specialArgs;
 
-                users.${username} = import ./home/amethyst.nix;
+                users.${username} = {
+                  home = {
+                    inherit stateVersion;
+                    inherit username;
+                    homeDirectory = "/home/${username}";
+                  };
+
+                  imports = [ ./home/${username}.nix ];
+                };
               };
+
+              system.stateVersion = stateVersion;
+              nix.settings.auto-optimise-store = true;
+              nix.settings.experimental-features = [
+                "nix-command"
+                "flakes"
+              ];
             }
           ];
         };
@@ -60,8 +84,9 @@
 
       nixosConfigurations.amethyst = mkSystem {
         hostname = "amethyst";
+        stateVersion = "24.05";
       };
 
-      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      formatter.${system} = pkgs.nixfmt-rfc-style;
     };
 }

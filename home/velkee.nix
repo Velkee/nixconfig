@@ -11,9 +11,7 @@ let
 in
 {
   home = {
-    inherit username;
-  };
-  home.homeDirectory = "/home/${username}";
+ };
 
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -140,7 +138,4 @@ in
       };
     };
   };
-
-  home.stateVersion = "25.05";
-  programs.home-manager.enable = true;
 }
