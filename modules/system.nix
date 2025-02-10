@@ -8,7 +8,10 @@
 {
   users.users.${username} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "pipewire"
+    ];
   };
 
   nix.settings = {
@@ -76,6 +79,7 @@
     };
   };
 
+  security.rtkit.enable = true;
   services = {
     pipewire = {
       enable = true;
