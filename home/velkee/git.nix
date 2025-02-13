@@ -37,8 +37,9 @@
   };
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pkgs.pinentry-qt;
   };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''

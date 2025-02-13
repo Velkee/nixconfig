@@ -1,79 +1,6 @@
-{
-  pkgs,
-  config,
-  username,
-  inputs,
-  ...
-}: let
+{config, ...}: let
   mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
 in {
-  home = {
-  };
-
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-
-    ./modules/emulation.nix
-    ./modules/firefox.nix
-    ./modules/git.nix
-    ./modules/hyprland.nix
-    ./modules/kitty.nix
-    ./modules/mpv.nix
-    ./modules/nixvim.nix
-    ./modules/spotify.nix
-    ./modules/theme.nix
-    ./modules/vscodium.nix
-    ./modules/waybar
-  ];
-
-  home.packages = with pkgs; [
-    anki
-    ark
-    bitwarden-desktop
-    clonehero
-    dolphin
-    gwenview
-    hydrus
-    krita
-    mangohud
-    obsidian
-    osu-lazer-bin
-    pwvucontrol
-    strawberry-qt6
-    vesktop
-    xivlauncher
-    (prismlauncher.override {
-      jdks = [
-        temurin-jre-bin
-        temurin-jre-bin-17
-        temurin-jre-bin-23
-        temurin-jre-bin-8
-      ];
-    })
-  ];
-
-  wayland.windowManager.hyprland = {
-    settings = {
-      monitor = [
-        "DP-2, 2560x1440@60, -2560x0, 1"
-        "DP-3, 2560x1440@144, 0x0, 1, vrr, 2"
-      ];
-      exec-once = [
-        "fcitx5"
-      ];
-      env = [
-        "GBM_BACKEND,nvidia-drm"
-        "LIBVA_DRIVER_NAME,nvidia"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "__GL_GSYNC_ALLOWED,1"
-        "__GL_VRR_ALLOWED,1"
-
-        "MOZ_DISABLE_RDD_SANDBOX,1"
-      ];
-      experimental.xx_color_management_v4 = true;
-    };
-  };
-
   programs.mpv = {
     profiles = {
       "4k" = {
@@ -121,14 +48,4 @@ in {
       rev = "38992bce7f9ff844f800820df0908692b65bb74a";
     };
   in "${fetch}/SSimDownscaler.glsl";
-
-  programs.ssh = {
-    enable = true;
-    matchBlocks = {
-      "github.com" = {
-        user = "git";
-        identityFile = "/home/velkee/.ssh/id_ed25519_github";
-      };
-    };
-  };
 }

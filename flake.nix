@@ -56,6 +56,7 @@
         inherit pkgs;
 
         modules = [
+          ./hosts
           ./hosts/${hostname}
           lix-module.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -72,16 +73,14 @@
                   homeDirectory = "/home/${username}";
                 };
 
-                imports = [./home/${username}.nix];
+                imports = [
+                  ./home/${username}
+                  ./home/${username}/${hostname}
+                ];
               };
             };
 
             system.stateVersion = stateVersion;
-            nix.settings.auto-optimise-store = true;
-            nix.settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
           }
         ];
       };

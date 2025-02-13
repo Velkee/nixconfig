@@ -2,15 +2,13 @@
   imports = [
     ./hardware-configuration.nix
 
-    ../../modules/fcitx5.nix
-    ../../modules/hyprland.nix
-    ../../modules/libvirt.nix
-    ../../modules/sddm.nix
-    ../../modules/steam.nix
-    ../../modules/system.nix
-    ../../modules/tailscale.nix
-    ../../modules/unbound.nix
-    ../../modules/wine.nix
+    ../modules/fcitx5.nix
+    ../modules/libvirt.nix
+    ../modules/sddm.nix
+    ../modules/steam.nix
+    ../modules/tailscale.nix
+    ../modules/unbound.nix
+    ../modules/wine.nix
 
     ./filesystems.nix
     ./graphics.nix
@@ -18,10 +16,13 @@
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "amethyst"; # Define your hostname.
+  networking.hostName = "amethyst";
   networking.wireless.iwd.enable = true;
 
   i18n.defaultLocale = "ja_JP.UTF-8";

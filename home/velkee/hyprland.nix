@@ -68,17 +68,6 @@
     };
   };
 
-  services.hyprpaper = {
-    enable = true;
-
-    settings = {
-      splash = false;
-      preload = ["/home/velkee/nix/wallpaper.png"];
-
-      wallpaper = ", /home/velkee/nix/wallpaper.png";
-    };
-  };
-
   home.packages = with pkgs; [
     grim
     slurp

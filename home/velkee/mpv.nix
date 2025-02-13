@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  mpvShaderDir,
   ...
 }: let
   mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
@@ -78,16 +77,18 @@ in {
     };
   };
 
-  xdg.configFile."mpv/shaders/noise_static_luma.hook".source = builtins.fetchurl {
-    url = "https://pastebin.com/raw/yacMe6EZ";
-    sha256 = "1lf0kqb3yxgrx56v5171y3rkgm9wc4bpxibyz7q8f5v5252bdjyx";
-  };
-  xdg.configFile."mpv/shaders/CfL_Predictions.glsl".source = let
-    fetch = builtins.fetchGit {
-      url = "https://github.com/Artoriuz/glsl-chroma-from-luma-prediction";
-      rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
+  xdg.configFile = {
+    "mpv/shaders/noise_static_luma.hook".source = builtins.fetchurl {
+      url = "https://pastebin.com/raw/yacMe6EZ";
+      sha256 = "1lf0kqb3yxgrx56v5171y3rkgm9wc4bpxibyz7q8f5v5252bdjyx";
     };
-  in "${fetch}/CfL_Prediction.glsl";
+    "mpv/shaders/CfL_Predictions.glsl".source = let
+      fetch = builtins.fetchGit {
+        url = "https://github.com/Artoriuz/glsl-chroma-from-luma-prediction";
+        rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
+      };
+    in "${fetch}/CfL_Prediction.glsl";
+  };
 
   home.packages = with pkgs; [
     jellyfin-mpv-shim
