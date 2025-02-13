@@ -4,14 +4,11 @@
   username,
   inputs,
   ...
-}:
-
-let
+}: let
   mpvShaderDir = "${config.xdg.configHome}/mpv/shaders";
-in
-{
+in {
   home = {
- };
+  };
 
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -112,22 +109,18 @@ in
     };
   };
 
-  xdg.configFile."mpv/shaders/ArtCNN_C4F16.glsl".source =
-    let
-      fetch = builtins.fetchGit {
-        url = "https://github.com/Artoriuz/ArtCNN";
-        rev = "dfa456ffb242a07de8bd15296ffa18f018d62b93";
-      };
-    in
-    "${fetch}/GLSL/ArtCNN_C4F16.glsl";
-  xdg.configFile."mpv/shaders/SSimDownscaler.glsl".source =
-    let
-      fetch = builtins.fetchGit {
-        url = "https://gist.github.com/36508af3ffc84410fe39761d6969be10.git";
-        rev = "38992bce7f9ff844f800820df0908692b65bb74a";
-      };
-    in
-    "${fetch}/SSimDownscaler.glsl";
+  xdg.configFile."mpv/shaders/ArtCNN_C4F16.glsl".source = let
+    fetch = builtins.fetchGit {
+      url = "https://github.com/Artoriuz/ArtCNN";
+      rev = "dfa456ffb242a07de8bd15296ffa18f018d62b93";
+    };
+  in "${fetch}/GLSL/ArtCNN_C4F16.glsl";
+  xdg.configFile."mpv/shaders/SSimDownscaler.glsl".source = let
+    fetch = builtins.fetchGit {
+      url = "https://gist.github.com/36508af3ffc84410fe39761d6969be10.git";
+      rev = "38992bce7f9ff844f800820df0908692b65bb74a";
+    };
+  in "${fetch}/SSimDownscaler.glsl";
 
   programs.ssh = {
     enable = true;

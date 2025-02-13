@@ -1,9 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -37,5 +32,5 @@
   ];
 
   services.printing.enable = true;
-  services.printing.drivers = [ pkgs.gutenprint ];
+  services.printing.drivers = [pkgs.gutenprint];
 }

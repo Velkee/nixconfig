@@ -14,79 +14,83 @@
 
     hyprland.url = "github:hyprwm/Hyprland";
 
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    spicetify-nix.inputs.nixpkgs.follows = "nixpkgs";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lix-module = {
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    inputs@{
-      nixpkgs,
-      home-manager,
-      nixvim,
-      ...
-    }:
-    let
-      system = "x86_64-linux";
-      username = "velkee";
-      specialArgs = {
-        inherit username;
-        inherit inputs;
-      };
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
-       };
-      };
-
-      mkSystem =
-        {
-          hostname,
-          stateVersion,
-        }:
-        nixpkgs.lib.nixosSystem {
-          inherit system;
-          inherit specialArgs;
-          inherit pkgs;
-
-          modules = [
-            ./hosts/${hostname}
-            home-manager.nixosModules.home-manager
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = specialArgs;
-
-                users.${username} = {
-                  home = {
-                    inherit stateVersion;
-                    inherit username;
-                    homeDirectory = "/home/${username}";
-                  };
-
-                  imports = [ ./home/${username}.nix ];
-                };
-              };
-
-              system.stateVersion = stateVersion;
-              nix.settings.auto-optimise-store = true;
-              nix.settings.experimental-features = [
-                "nix-command"
-                "flakes"
-              ];
-            }
-          ];
-        };
-    in
-    {
-
-      nixosConfigurations.amethyst = mkSystem {
-        hostname = "amethyst";
-        stateVersion = "24.05";
-      };
-
-      formatter.${system} = pkgs.nixfmt-rfc-style;
+  outputs = inputs @ {
+    home-manager,
+    lix-module,
+    nixpkgs,
+    nixvim,
+    ...
+  }: let
+    system = "x86_64-linux";
+    username = "velkee";
+    specialArgs = {
+      inherit username;
+      inherit inputs;
     };
+
+    pkgs = import nixpkgs {
+      inherit system;
+      config = {
+        allowUnfree = true;
+      };
+    };
+
+    mkSystem = {
+      hostname,
+      stateVersion,
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        inherit specialArgs;
+        inherit pkgs;
+
+        modules = [
+          ./hosts/${hostname}
+          lix-module.nixosModules.default
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = specialArgs;
+
+              users.${username} = {
+                home = {
+                  inherit stateVersion;
+                  inherit username;
+                  homeDirectory = "/home/${username}";
+                };
+
+                imports = [./home/${username}.nix];
+              };
+            };
+
+            system.stateVersion = stateVersion;
+            nix.settings.auto-optimise-store = true;
+            nix.settings.experimental-features = [
+              "nix-command"
+              "flakes"
+            ];
+          }
+        ];
+      };
+  in {
+    nixosConfigurations.amethyst = mkSystem {
+      hostname = "amethyst";
+      stateVersion = "24.05";
+    };
+
+    formatter.${system} = pkgs.alejandra;
+  };
 }

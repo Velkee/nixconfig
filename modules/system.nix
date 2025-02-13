@@ -3,9 +3,7 @@
   lib,
   username,
   ...
-}:
-
-{
+}: {
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
@@ -64,8 +62,8 @@
         "Noto Sans"
         "IPAGothic"
       ];
-      monospace = [ "FiraCode Nerd Font Mono" ];
-      emoji = [ "Noto Color Emoji" ];
+      monospace = ["FiraCode Nerd Font Mono"];
+      emoji = ["Noto Color Emoji"];
     };
   };
 

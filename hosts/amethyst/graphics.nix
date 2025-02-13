@@ -2,9 +2,7 @@
   pkgs,
   config,
   ...
-}:
-
-{
+}: {
   boot.kernelParams = [
     "fbdev=1"
     "nvidia_drm.fbdev=1"
@@ -27,7 +25,7 @@
       enable = true;
       enable32Bit = true;
 
-      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
+      extraPackages = with pkgs; [nvidia-vaapi-driver];
     };
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
@@ -35,5 +33,5 @@
     nvidia.modesetting.enable = true;
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
 }

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   gtk.enable = true;
   gtk.iconTheme = {
     name = "BeautyLine";
@@ -10,7 +8,7 @@
     name = "catppuccin-mocha-pink-standard";
     package = (
       pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = ["pink"];
         variant = "mocha";
       }
     );

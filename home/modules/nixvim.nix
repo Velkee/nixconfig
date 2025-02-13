@@ -40,6 +40,7 @@
       };
 
       colorizer.enable = true;
+
       conform-nvim = {
         enable = true;
         settings = {
@@ -78,7 +79,7 @@
               "rustfmt"
             ];
             nix = [
-              "nixfmt"
+              "alejandra"
             ];
           };
           format_on_save = {
@@ -163,7 +164,11 @@
           html.enable = true;
           cssls.enable = true;
           jsonls.enable = true;
-          rust_analyzer.enable = true;
+          rust_analyzer = {
+            enable = true;
+            installCargo = false;
+            installRustc = false;
+          };
           yamlls.enable = true;
           taplo.enable = true;
           nil_ls.enable = true;
@@ -172,7 +177,6 @@
 
       cmp = {
         enable = true;
-        autoEnableSources = true;
         settings = {
           snippet = {
             expand = "function(args) require('luasnip').lsp_expand(args.body) end";
@@ -187,12 +191,18 @@
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           };
           sources = [
-            { name = "nvim_lsp"; }
-            { name = "luasnip"; }
-            { name = "path"; }
-            { name = "buffer"; }
+            {name = "nvim_lsp";}
+            {name = "luasnip";}
+            {name = "path";}
+            {name = "buffer";}
           ];
         };
+        luaConfig.post = ''
+          vim.cmd([[
+            set completeopt=menuone,noinsert,noselect
+            highlight! default link CmpItemKind CmpItemMenuDefault
+          ]])
+        '';
       };
 
       lualine.enable = true;

@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   services.unbound = {
     enable = true;
     package = pkgs.unbound-full;

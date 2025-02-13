@@ -5,5 +5,5 @@
   };
 
   programs.adb.enable = true;
-  users.users.velkee.extraGroups = [ "adbusers" ];
+  users.users.velkee.extraGroups = ["adbusers"];
 }

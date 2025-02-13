@@ -37,7 +37,7 @@
     ];
   };
 
-  swapDevices = [ { device = "/.swap/swapfile"; } ];
+  swapDevices = [{device = "/.swap/swapfile";}];
 
   services.btrfs.autoScrub.enable = true;
 }

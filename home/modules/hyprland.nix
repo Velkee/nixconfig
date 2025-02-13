@@ -1,6 +1,8 @@
-{ inputs, pkgs, ... }:
-
 {
+  inputs,
+  pkgs,
+  ...
+}: {
   programs.wofi.enable = true;
   programs.waybar = {
     enable = true;
@@ -43,15 +45,14 @@
         ]
         ++ (builtins.concatLists (
           builtins.genList (
-            i:
-            let
+            i: let
               ws = i + 1;
-            in
-            [
+            in [
               "$mod, code:1${toString i}, workspace, ${toString ws}"
               "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
             ]
-          ) 9
+          )
+          9
         ));
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -72,7 +73,7 @@
 
     settings = {
       splash = false;
-      preload = [ "/home/velkee/nix/wallpaper.png" ];
+      preload = ["/home/velkee/nix/wallpaper.png"];
 
       wallpaper = ", /home/velkee/nix/wallpaper.png";
     };
