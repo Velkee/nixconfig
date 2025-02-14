@@ -85,9 +85,15 @@
         ];
       };
   in {
-    nixosConfigurations.amethyst = mkSystem {
-      hostname = "amethyst";
-      stateVersion = "24.05";
+    nixosConfigurations = {
+      amethyst = mkSystem {
+        hostname = "amethyst";
+        stateVersion = "24.05";
+      };
+      hephaestus = mkSystem {
+        hostname = "hephaestus";
+        stateVersion = "24.11";
+      };
     };
 
     formatter.${system} = pkgs.alejandra;
