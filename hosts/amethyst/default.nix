@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
 
     ../modules/fcitx5.nix
+    ../modules/hyprland.nix
     ../modules/libvirt.nix
     ../modules/sddm.nix
     ../modules/steam.nix
@@ -17,7 +18,7 @@
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
   boot.loader.grub = {
-    enable = true;
+    efiSupport = true;
     device = "nodev";
   };
   boot.loader.efi.canTouchEfiVariables = true;
