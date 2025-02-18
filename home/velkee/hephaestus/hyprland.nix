@@ -3,7 +3,7 @@
     settings = {
       monitor = [
         "eDP-1, 1920x1080@60, 0x0, 1, vrr, 2"
-        "DP-3, 5120x1440@60, 1920x0, 1, vrr, 2"
+        "desc:Philips Consumer Electronics Company PHL 499P9, 5120x1440@60, 1920x0, 1, vrr, 2"
       ];
       exec-once = [
         "fcitx5"
@@ -26,10 +26,12 @@
     settings = {
       splash = false;
       preload = [
-        "/home/velkee/nix/home/velkee/amethyst/wallpaper.png"
+        "/home/velkee/nix/home/velkee/hephaestus/wallpaper-ws.png"
+        "/home/velkee/nix/home/velkee/hephaestus/ligma.jpg"
       ];
       wallpaper = [
-        ", /home/velkee/nix/home/velkee/amethyst/wallpaper.png"
+        "desc:Philips Consumer Electronics Company PHL 499P9, /home/velkee/nix/home/velkee/hephaestus/wallpaper-ws.png"
+        ", /home/velkee/nix/home/velkee/hephaestus/ligma.jpg"
       ];
     };
   };

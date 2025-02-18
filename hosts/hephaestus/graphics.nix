@@ -29,7 +29,7 @@
     };
     nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 
-    nvidia.open = true;
+    nvidia.open = false;
     nvidia.modesetting.enable = true;
   };
 

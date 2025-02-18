@@ -35,4 +35,7 @@
     "ja_JP.UTF-8/UTF-8"
     "nb_NO.UTF-8/UTF-8"
   ];
+
+  services.hardware.bolt.enable = true;
+  hardware.bluetooth.enable = true;
 }
