@@ -53,4 +53,18 @@
       };
     };
   };
+
+  xdg.desktopEntries = {
+    vesktop = {
+      name = "Vesktop";
+      exec = "vesktop %U --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime --wayland-text-input-version=3";
+      icon = "vesktop";
+      genericName = "Internet Messenger";
+      categories = [
+        "Network"
+        "InstantMessaging"
+        "Chat"
+      ];
+    };
+  };
 }
