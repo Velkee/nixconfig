@@ -31,5 +31,11 @@
         };
       };
     };
+    wireplumber = {
+      format = "{volume}% {icon}";
+      format-muted = "";
+      on-click = "pwvucontrol";
+      format-icons = ["" "" ""];
+    };
   };
 }
