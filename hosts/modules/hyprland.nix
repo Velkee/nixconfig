@@ -11,8 +11,9 @@ with lib; let
 in {
   options.hyprland = {
     enable = mkEnableOption "Hyprland WM";
-    display = mkOption {
+    monitor = mkOption {
       type = types.listOf str;
+      default = [", preferred, auto, 1"];
     };
   };
   config = mkIf cfg.enable {
@@ -34,6 +35,10 @@ in {
       imports = [
         ../../home/velkee/hyprland.nix
       ];
+
+      wayland.windowManager.hyprland.settings = {
+        monitor = cfg.display;
+      };
     };
   };
 }
