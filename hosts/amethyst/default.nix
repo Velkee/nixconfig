@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
 
+    ../modules/docker.nix
     ../modules/fcitx5.nix
     ../modules/hyprland.nix
     ../modules/libvirt.nix
