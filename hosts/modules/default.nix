@@ -4,6 +4,17 @@
   username,
   ...
 }: {
+  imports = [
+    ./fcitx5.nix
+    ./hyprland.nix
+    ./libvirt.nix
+    ./sddm.nix
+    ./steam.nix
+    ./tailscale.nix
+    ./unbound.nix
+    ./wine.nix
+  ];
+
   users.users.${username} = {
     isNormalUser = true;
     extraGroups = [
@@ -12,24 +23,37 @@
     ];
   };
 
+  boot.loader.grub = {
+    efiSupport = true;
+    device = "nodev";
+  };
+  boot.loader.efi.canTouchEfiVariables = true;
+
   environment.systemPackages = with pkgs; [
     neovim
   ];
 
   time.timeZone = "Europe/Oslo";
 
-  i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+  i18n = {
+    defaultLocale = lib.mkDefault "en_US.UTF-8";
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ja_JP.UTF-8/UTF-8"
+      "nb_NO.UTF-8/UTF-8"
+    ];
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "nb_NO.UTF-8";
-    LC_IDENTIFICATION = "nb_NO.UTF-8";
-    LC_MEASUREMENT = "nb_NO.UTF-8";
-    LC_MONETARY = "nb_NO.UTF-8";
-    LC_NAME = "nb_NO.UTF-8";
-    LC_NUMERIC = "nb_NO.UTF-8";
-    LC_PAPER = "nb_NO.UTF-8";
-    LC_TELEPHONE = "nb_NO.UTF-8";
-    LC_TIME = "nb_NO.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "nb_NO.UTF-8";
+      LC_IDENTIFICATION = "nb_NO.UTF-8";
+      LC_MEASUREMENT = "nb_NO.UTF-8";
+      LC_MONETARY = "nb_NO.UTF-8";
+      LC_NAME = "nb_NO.UTF-8";
+      LC_NUMERIC = "nb_NO.UTF-8";
+      LC_PAPER = "nb_NO.UTF-8";
+      LC_TELEPHONE = "nb_NO.UTF-8";
+      LC_TIME = "nb_NO.UTF-8";
+    };
   };
 
   console = {
@@ -37,15 +61,13 @@
   };
 
   fonts = {
-    packages = with pkgs; [
-      noto-fonts
-      ipafont
-      noto-fonts-color-emoji
-
-      nerd-fonts.fira-code
-    ];
-
     enableDefaultPackages = false;
+    packages = with pkgs; [
+      ipafont
+      nerd-fonts.fira-code
+      noto-fonts
+      noto-fonts-color-emoji
+    ];
 
     fontconfig.defaultFonts = {
       serif = [
