@@ -8,7 +8,6 @@
     ../modules/sddm.nix
     ../modules/steam.nix
     ../modules/tailscale.nix
-    ../modules/unbound.nix
     ../modules/wine.nix
 
     ./filesystems.nix
@@ -16,6 +15,9 @@
   ];
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelParams = [
+    "usbcore.quirks=0bda:8153:k"
+  ];
 
   boot.loader.grub = {
     efiSupport = true;
@@ -24,11 +26,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "hephaestus";
-  networking.networkmanager = {
-    enable = true;
-    dhcp = "dhcpcd";
-    dns = "none";
-  };
+  networking.networkmanager.enable = true;
 
   i18n.supportedLocales = [
     "en_US.UTF-8/UTF-8"
@@ -37,5 +35,7 @@
   ];
 
   services.hardware.bolt.enable = true;
+  services.tlp.enable = true;
+  services.thermald.enable = true;
   hardware.bluetooth.enable = true;
 }
