@@ -22,6 +22,9 @@
     anki
     ark
     bitwarden-desktop
+    (blender.override {
+      cudaSupport = true;
+    })
     clonehero
     dolphin
     gwenview
