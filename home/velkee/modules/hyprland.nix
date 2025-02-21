@@ -42,6 +42,9 @@
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
+
+          "$mod, V, togglefloating"
+          "$mod SHIFT, F, fullscreen, 0"
         ]
         ++ (builtins.concatLists (
           builtins.genList (
