@@ -9,7 +9,7 @@ in {
   options.docker = {
     enable = mkEnableOption "Docker virtualisation service";
     storageDriver = mkOption {
-      type = types.nullOr enum ["aufs" "btrfs" "devicemapper" "overlay" "overlay2" "zfs"];
+      type = types.nullOr (types.enum ["aufs" "btrfs" "devicemapper" "overlay" "overlay2" "zfs"]);
       default = null;
     };
     rootless = mkOption {

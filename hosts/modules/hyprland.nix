@@ -12,8 +12,16 @@ in {
   options.hyprland = {
     enable = mkEnableOption "Hyprland WM";
     monitor = mkOption {
-      type = types.listOf str;
+      type = types.listOf types.str;
       default = [", preferred, auto, 1"];
+    };
+
+    wallpaper.enable = mkEnableOption "Hyprpaper wallpaper service";
+    wallpaper.preload = mkOption {
+      type = types.listOf types.str;
+    };
+    wallpaper.assign = mkOption {
+      type = types.listOf types.str;
     };
   };
   config = mkIf cfg.enable {
@@ -33,11 +41,20 @@ in {
 
     home-manager.users.${username} = {
       imports = [
-        ../../home/velkee/hyprland.nix
+        ../../home/velkee/modules/hyprland.nix
       ];
 
       wayland.windowManager.hyprland.settings = {
-        monitor = cfg.display;
+        monitor = cfg.monitor;
+      };
+
+      services.hyprpaper = mkIf cfg.wallpaper.enable {
+        enable = true;
+
+        settings = {
+          preload = cfg.wallpaper.preload;
+          wallpaper = cfg.wallpaper.assign;
+        };
       };
     };
   };

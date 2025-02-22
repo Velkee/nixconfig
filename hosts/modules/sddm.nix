@@ -7,7 +7,7 @@ with lib; let
   cfg = config.sddm;
 in {
   options.sddm = {
-    enable = mkEnableOption "SDDM display manager" ? true;
+    enable = mkEnableOption "SDDM display manager";
   };
 
   config = mkIf cfg.enable {

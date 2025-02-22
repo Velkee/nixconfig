@@ -9,6 +9,10 @@
     ./modules
   ];
 
+  mpv = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     anki
     ark

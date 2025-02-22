@@ -11,7 +11,7 @@ in {
     enable = mkEnableOption "Unbound DNS server";
     tailscale.enable = mkOption {
       type = types.bool;
-      default = config.tailscale;
+      default = config.tailscale.enable;
     };
   };
 

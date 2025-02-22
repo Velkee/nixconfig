@@ -1,11 +1,11 @@
 {
   pkgs,
   lib,
-  conf,
+  config,
   ...
 }:
 with lib; let
-  cfg = conf.wine;
+  cfg = config.wine;
 in {
   options.wine = {
     enable = mkEnableOption "Wine translation layer";
