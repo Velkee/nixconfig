@@ -36,6 +36,7 @@
           "$mod, F, exec, firefox"
           "$mod, R, exec, wofi --show drun"
           "$mod, E, exec, dolphin"
+          "$mod, L, exec, hyprlock"
           ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
           "$mod, left, movefocus, l"
@@ -74,4 +75,6 @@
     wl-clipboard
     xorg.xsetroot
   ];
+
+  programs.hyprlock.enable = true;
 }

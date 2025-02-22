@@ -36,4 +36,10 @@
 
   services.printing.enable = true;
   services.printing.drivers = [pkgs.gutenprint];
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  networking.firewall.allowedTCPPorts = [64738];
+  networking.firewall.allowedUDPPorts = [64738];
 }
