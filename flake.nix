@@ -34,6 +34,7 @@
   }: let
     system = "x86_64-linux";
     username = "velkee";
+
     specialArgs = {
       inherit username;
       inherit inputs;
@@ -51,12 +52,9 @@
       stateVersion,
     }:
       nixpkgs.lib.nixosSystem {
-        inherit system;
-        inherit specialArgs;
-        inherit pkgs;
+        inherit system specialArgs pkgs;
 
         modules = [
-          ./hosts
           ./hosts/${hostname}
           lix-module.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -68,14 +66,12 @@
 
               users.${username} = {
                 home = {
-                  inherit stateVersion;
-                  inherit username;
+                  inherit username stateVersion;
                   homeDirectory = "/home/${username}";
                 };
 
                 imports = [
                   ./home/${username}
-                  ./home/${username}/${hostname}
                 ];
               };
             };
@@ -97,5 +93,11 @@
     };
 
     formatter.${system} = pkgs.alejandra;
+
+    devShells.${system}.default = pkgs.mkShell {
+      buildInputs = with pkgs; [
+        alejandra
+      ];
+    };
   };
 }

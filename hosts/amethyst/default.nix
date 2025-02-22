@@ -1,20 +1,34 @@
 {pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
-
-    ../modules/docker.nix
-    ../modules/fcitx5.nix
-    ../modules/hyprland.nix
-    ../modules/libvirt.nix
-    ../modules/sddm.nix
-    ../modules/steam.nix
-    ../modules/tailscale.nix
-    ../modules/unbound.nix
-    ../modules/wine.nix
-
     ./filesystems.nix
     ./graphics.nix
+
+    ../modules
   ];
+
+  docker = {
+    enable = true;
+    storageDriver = "btrfs";
+    rootless = true;
+  };
+  fcitx5.enable = true;
+  hyprland = {
+    enable = true;
+    monitor = [
+      "DP-3, 2560x1440@144, auto, 1"
+    ];
+    wallpaper = {
+      enable = true;
+      preload = ["/home/velkee/nix/wallpapers/mizuki.png"];
+      assign = ["DP-3,/home/velkee/nix/wallpapers/mizuki.png"];
+    };
+  };
+  libvirt.enable = true;
+  sddm.enable = true;
+  steam.enable = true;
+  tailscale.enable = true;
+  wine.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 

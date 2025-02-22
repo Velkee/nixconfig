@@ -6,17 +6,12 @@
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
 
-    ./emulation.nix
-    ./firefox.nix
-    ./git.nix
-    ./kitty.nix
-    ./mpv.nix
-    ./nixvim.nix
-    ./hyprland.nix
-    ./spotify.nix
-    ./theme.nix
-    ./waybar
+    ./modules
   ];
+
+  mpv = {
+    enable = true;
+  };
 
   home.packages = with pkgs; [
     anki
