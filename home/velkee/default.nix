@@ -15,14 +15,15 @@
 
   home.packages = with pkgs; [
     anki
-    ark
+    kdePackages.ark
     bitwarden-desktop
     (blender.override {
       cudaSupport = true;
     })
+    blockbench
     clonehero
-    dolphin
-    gwenview
+    kdePackages.dolphin
+    kdePackages.gwenview
     hydrus
     krita
     mangohud

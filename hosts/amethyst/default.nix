@@ -16,12 +16,13 @@
   hyprland = {
     enable = true;
     monitor = [
-      "DP-3, 2560x1440@144, auto, 1"
+      "DP-2, 2560x1440@144, 0x0, 1"
+      "DP-3, 2560x1440@60, -2560x0, 1"
     ];
     wallpaper = {
       enable = true;
       preload = ["/home/velkee/nix/wallpapers/mizuki.png"];
-      assign = ["DP-3,/home/velkee/nix/wallpapers/mizuki.png"];
+      assign = ["DP-2,/home/velkee/nix/wallpapers/mizuki.png" "DP-3,/home/velkee/nix/wallpapers/mizuki.png"];
     };
   };
   libvirt.enable = true;
@@ -53,7 +54,4 @@
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
-  networking.firewall.allowedTCPPorts = [64738];
-  networking.firewall.allowedUDPPorts = [64738];
 }

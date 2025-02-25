@@ -172,6 +172,7 @@
           yamlls.enable = true;
           taplo.enable = true;
           nil_ls.enable = true;
+          lua_ls.enable = true;
         };
       };
 
