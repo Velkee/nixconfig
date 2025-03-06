@@ -69,6 +69,9 @@
       decoration = {
         rounding = 10;
       };
+      experimental = {
+        xx_color_management_v4 = true;
+      };
     };
   };
 
