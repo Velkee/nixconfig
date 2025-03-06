@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  username,
   ...
 }:
 with lib; let
@@ -32,5 +33,7 @@ in {
           setSocketVariable = false;
         };
     };
+
+    users.users.${username}.autoSubUidGidRange = true;
   };
 }
