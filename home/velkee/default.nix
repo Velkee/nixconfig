@@ -15,24 +15,11 @@
 
   home.packages = with pkgs; [
     anki
-    kdePackages.ark
     bitwarden-desktop
     (blender.override {
       cudaSupport = true;
     })
     blockbench
-    clonehero
-    kdePackages.dolphin
-    kdePackages.gwenview
-    hydrus
-    krita
-    mangohud
-    obsidian
-    osu-lazer-bin
-    pwvucontrol
-    strawberry-qt6
-    vesktop
-    xivlauncher
     (prismlauncher.override {
       jdks = [
         temurin-jre-bin
@@ -41,6 +28,19 @@
         temurin-jre-bin-8
       ];
     })
+    clonehero
+    hydrus
+    kdePackages.ark
+    kdePackages.dolphin
+    kdePackages.gwenview
+    krita
+    mangohud
+    obsidian
+    osu-lazer-bin
+    pwvucontrol
+    strawberry-qt6
+    vesktop
+    xivlauncher
   ];
 
   programs.ssh = {
