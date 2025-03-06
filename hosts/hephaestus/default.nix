@@ -17,7 +17,7 @@
     wallpaper = {
       enable = true;
       preload = ["/home/velkee/nix/wallpapers/wallpaper-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
-      assign = ["DP-3,/home/velkee/nix/wallpapers/wallpaper-ws.png" "e-DP1,/home/velkee/nix/wallpapers/ligma.jpg"];
+      assign = ["DP-3,/home/velkee/nix/wallpapers/wallpaper-ws.png" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
     };
   };
   libvirt.enable = true;
