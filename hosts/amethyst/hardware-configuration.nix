@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -48,7 +47,7 @@
     options = ["subvol=home"];
   };
 
-  fileSystems."/boot" = {
+  fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/E6AA-5EAF";
     fsType = "vfat";
     options = [

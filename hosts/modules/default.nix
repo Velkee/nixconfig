@@ -24,11 +24,16 @@
     ];
   };
 
-  boot.loader.grub = {
-    efiSupport = true;
-    device = "nodev";
+  boot.loader = {
+    grub = {
+      efiSupport = true;
+      device = "nodev";
+    };
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
   };
-  boot.loader.efi.canTouchEfiVariables = true;
 
   environment.systemPackages = with pkgs; [
     neovim

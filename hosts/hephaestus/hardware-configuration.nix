@@ -101,7 +101,7 @@
     options = ["subvol=var"];
   };
 
-  fileSystems."/boot" = {
+  fileSystems."/boot/efi" = {
     device = "/dev/disk/by-uuid/2BDA-C0A8";
     fsType = "vfat";
     options = ["fmask=0022" "dmask=0022"];
