@@ -118,21 +118,25 @@ in {
       };
     };
 
-    xdg.configFile = {
+    xdg.configFile = with pkgs; {
       "mpv/shaders/noise_static_luma.hook".source = builtins.fetchurl {
         url = "https://pastebin.com/raw/yacMe6EZ";
         sha256 = "1lf0kqb3yxgrx56v5171y3rkgm9wc4bpxibyz7q8f5v5252bdjyx";
       };
       "mpv/shaders/CfL_Predictions.glsl".source = let
-        fetch = builtins.fetchGit {
-          url = "https://github.com/Artoriuz/glsl-chroma-from-luma-prediction";
+        fetch = fetchFromGitHub {
+          owner = "Artoriuz";
+          repo = "glsl-chroma-from-luma-prediction";
           rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
+          hash = "sha256-sbvFg8985gHZyYvbz0JEYVewBwXLb8kRja3a1LCZBnw=";
         };
       in "${fetch}/CfL_Prediction.glsl";
       "mpv/shaders/ArtCNN_C4F16.glsl".source = let
-        fetch = builtins.fetchGit {
-          url = "https://github.com/Artoriuz/ArtCNN";
-          rev = "dfa456ffb242a07de8bd15296ffa18f018d62b93";
+        fetch = fetchFromGitHub {
+          owner = "Artoriuz";
+          repo = "ArtCNN";
+          rev = "v1.2.3";
+          hash = "sha256-D1FVz4v5RUgNqnmmgjQ7DDQyZZFFVHQsBNyXJ4Sft7s=";
         };
       in "${fetch}/GLSL/ArtCNN_C4F16.glsl";
       "mpv/shaders/SSimDownscaler.glsl".source = let
