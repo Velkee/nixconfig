@@ -22,6 +22,7 @@ in {
         keep-open = "yes";
         autofit = "50%";
 
+        fullscreen = "yes";
         osd-bar = "no";
 
         alang = "jpn,eng";
@@ -53,6 +54,8 @@ in {
 
         scale-antiring = 0.6;
 
+        target-colorspace-hint = "yes";
+        target-contrast = "auto";
         target-prim = "auto";
         target-trc = "auto";
         video-output-levels = "full";
