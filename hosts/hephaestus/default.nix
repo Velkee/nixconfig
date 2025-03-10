@@ -12,7 +12,7 @@
     enable = true;
     monitor = [
       "eDP-1, 1920x1080@60, auto, 1"
-      "DP-3, 5120x1440@60, auto, 1"
+      "DP-3, 5120x1440@60, auto, 1, vrr, 2, bitdepth, 10"
     ];
     wallpaper = {
       enable = true;
@@ -37,6 +37,7 @@
   services.hardware.bolt.enable = true;
   services.tlp.enable = true;
   services.thermald.enable = true;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 }
