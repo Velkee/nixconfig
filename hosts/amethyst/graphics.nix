@@ -34,7 +34,4 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
-  environment.defaultPackages = with pkgs; [
-    vulkan-hdr-layer-kwin6
-  ];
 }
