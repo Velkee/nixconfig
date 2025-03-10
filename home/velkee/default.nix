@@ -16,9 +16,6 @@
   home.packages = with pkgs; [
     anki
     bitwarden-desktop
-    (blender.override {
-      cudaSupport = true;
-    })
     blockbench
     (prismlauncher.override {
       jdks = [
