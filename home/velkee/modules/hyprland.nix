@@ -38,6 +38,7 @@
           "$mod, E, exec, dolphin"
           "$mod, L, exec, hyprlock"
           ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+          "$mod, F7, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
