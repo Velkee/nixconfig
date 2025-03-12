@@ -9,6 +9,7 @@
     ./fcitx5.nix
     ./hyprland.nix
     ./libvirt.nix
+    ./openrgb.nix
     ./sddm.nix
     ./steam.nix
     ./tailscale.nix

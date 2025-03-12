@@ -26,6 +26,7 @@
     };
   };
   libvirt.enable = true;
+  openrgb.enable = true;
   sddm.enable = true;
   steam.enable = true;
   tailscale.enable = true;
@@ -38,6 +39,8 @@
     device = "nodev";
   };
   boot.loader.efi.canTouchEfiVariables = true;
+
+  hardware.cpu.amd.updateMicrocode = true;
 
   networking.hostName = "amethyst";
   networking.wireless.iwd.enable = true;
