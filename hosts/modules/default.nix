@@ -22,7 +22,11 @@
       "wheel"
       "pipewire"
     ];
+    shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
+  environment.pathsToLink = ["/share/zsh"];
 
   boot.loader = {
     grub = {
