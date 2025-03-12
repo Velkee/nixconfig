@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   boot.kernelParams = [
     "fbdev=1"
     "nvidia_drm.fbdev=1"
