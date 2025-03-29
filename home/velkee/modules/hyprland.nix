@@ -66,6 +66,10 @@
       input = {
         kb_layout = "no";
         accel_profile = "flat";
+
+        tablet = {
+          output = "current";
+        };
       };
       decoration = {
         rounding = 10;
