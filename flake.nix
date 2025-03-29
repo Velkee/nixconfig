@@ -19,15 +19,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
     home-manager,
-    lix-module,
     nixpkgs,
     nixvim,
     ...
@@ -56,7 +51,6 @@
 
         modules = [
           ./hosts/${hostname}
-          lix-module.nixosModules.default
           home-manager.nixosModules.home-manager
           {
             home-manager = {
