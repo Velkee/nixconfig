@@ -8,7 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -25,10 +25,22 @@
       options = [ "subvol=nix" ];
     };
 
+  fileSystems."/.swap" =
+    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
+      fsType = "btrfs";
+      options = [ "subvol=swap" ];
+    };
+
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
       fsType = "btrfs";
       options = [ "subvol=home" ];
+    };
+
+  fileSystems."/var/lib/docker/btrfs" =
+    { device = "/home/home/root/var/lib/docker/btrfs";
+      fsType = "none";
+      options = [ "bind" ];
     };
 
   fileSystems."/boot/efi" =
@@ -37,20 +49,13 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
-  fileSystems."/.swap" =
-    { device = "/dev/disk/by-uuid/f176762f-6c4a-48b7-940f-c759585f1b7b";
-      fsType = "btrfs";
-      options = [ "subvol=swap" ];
-    };
-
-  fileSystems."/var/lib/docker/btrfs" =
-    { device = "/home/root/var/lib/docker/btrfs";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
   fileSystems."/media/games" =
     { device = "/dev/disk/by-uuid/38cd5cf5-d4df-4236-8b45-63dbf3f05cab";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/media/storage" =
+    { device = "/dev/disk/by-uuid/83df2e5a-4cef-481f-8115-df3fb53b1b2f";
       fsType = "btrfs";
     };
 
@@ -61,9 +66,10 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp14s0u1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp8s0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlp7s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.tailscale0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
