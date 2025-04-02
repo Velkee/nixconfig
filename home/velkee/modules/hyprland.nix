@@ -14,9 +14,9 @@
     settings = {
       "$mod" = "SUPER";
       exec-once = [
-        "waybar"
+        "fcitx5"
         "hyprpaper"
-        "xsetroot -cursor_name left_ptr"
+        "waybar"
       ];
       env = [
         "QT_QPA_PLATFORM,wayland;xcb"
