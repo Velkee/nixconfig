@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    mgba
-    melonDS
+    azahar
     dolphin-emu
-    # lime3ds
-    ryujinx
     duckstation
+    melonDS
+    mgba
     pcsx2
     ppsspp
     rpcs3
+    ryujinx
   ];
 }
