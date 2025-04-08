@@ -12,6 +12,10 @@ with lib; let
 in {
   options.mpv = {
     enable = mkEnableOption "MPV media player";
+    resolution = mkOption {
+      type = types.enum ["1080p" "1440p" "4k"];
+      default = "1080p";
+    };
   };
   config = mkIf cfg.enable {
     programs.mpv = {
@@ -88,21 +92,34 @@ in {
         };
       };
       profiles = {
-        "4k" = {
-          profile-desc = "4k";
-          profile-cond = "(width <=3840 and height ==2160)";
-          deband = "no";
-          glsl-shader = SSimDownscaler;
-        };
-        "1440p" = {
-          profile-desc = "1440p";
-          profile-cond = "(width <=2560 and height ==1440)";
-        };
-        full-hd = {
-          profile-desc = "full-hd";
-          profile-cond = "(width <=1920 and height ==1080)";
-          glsl-shader = ArtCNN;
-        };
+        "4k" =
+          {
+            profile-desc = "4k";
+            profile-cond = "(width <=3840 and height ==2160)";
+            deband = "no";
+          }
+          // attrsets.optionalAttrs (cfg.resolution != "4k") {
+            glsl-shader = SSimDownscaler;
+          };
+        "1440p" =
+          {
+            profile-desc = "1440p";
+            profile-cond = "(width <=2560 and height ==1440)";
+          }
+          // attrsets.optionalAttrs (cfg.resolution == "4k") {
+            glsl-shader = ArtCNN;
+          }
+          // attrsets.optionalAttrs (cfg.resolution == "1080p") {
+            glsl-shader = SSimDownscaler;
+          };
+        full-hd =
+          {
+            profile-desc = "full-hd";
+            profile-cond = "(width <=1920 and height ==1080)";
+          }
+          // attrsets.optionalAttrs (cfg.resolution != "1080p") {
+            glsl-shader = ArtCNN;
+          };
         hd = {
           profile-desc = "hd";
           profile-cond = "(width <=1280 and height ==720)";

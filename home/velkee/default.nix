@@ -11,6 +11,7 @@
 
   mpv = {
     enable = true;
+    resolution = "1440p";
   };
 
   home.packages = with pkgs; [
