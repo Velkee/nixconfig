@@ -74,7 +74,7 @@
   fonts = {
     enableDefaultPackages = false;
     packages = with pkgs; [
-      ipafont
+      ipaexfont
       nerd-fonts.fira-code
       noto-fonts
       noto-fonts-color-emoji
@@ -83,11 +83,11 @@
     fontconfig.defaultFonts = {
       serif = [
         "Noto Serif"
-        "IPAMincho"
+        "IPAexMincho"
       ];
       sansSerif = [
         "Noto Sans"
-        "IPAGothic"
+        "IPAexGothic"
       ];
       monospace = ["FiraCode Nerd Font Mono"];
       emoji = ["Noto Color Emoji"];
