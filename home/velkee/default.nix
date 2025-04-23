@@ -38,7 +38,10 @@
     strawberry-qt6
     vesktop
     xivlauncher
+    gcr
   ];
+
+  services.gnome-keyring.enable = true;
 
   programs.ssh = {
     enable = true;
