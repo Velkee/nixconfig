@@ -74,6 +74,12 @@
       decoration = {
         rounding = 10;
       };
+      general = {
+        allow_tearing = true;
+      };
+      windowrule = [
+        "immediate, fullscreen:1"
+      ];
       experimental = {
         xx_color_management_v4 = true;
       };
