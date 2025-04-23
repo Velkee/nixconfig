@@ -20,9 +20,8 @@
     blockbench
     (prismlauncher.override {
       jdks = [
-        temurin-jre-bin
+        temurin-jre-bin-21
         temurin-jre-bin-17
-        temurin-jre-bin-23
         temurin-jre-bin-8
       ];
     })
