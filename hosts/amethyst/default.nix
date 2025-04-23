@@ -21,8 +21,11 @@
     ];
     wallpaper = {
       enable = true;
-      preload = ["/home/velkee/nix/wallpapers/mizuki.png"];
-      assign = ["DP-2,/home/velkee/nix/wallpapers/mizuki.png" "DP-3,/home/velkee/nix/wallpapers/mizuki.png"];
+      preload = [
+        "/home/velkee/nix/wallpapers/mizuki.png"
+        "/home/velkee/nix/wallpapers/luka.png"
+      ];
+      assign = ["DP-2,/home/velkee/nix/wallpapers/mizuki.png" "DP-3,/home/velkee/nix/wallpapers/luka.png"];
     };
   };
   libvirt.enable = true;
