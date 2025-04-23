@@ -83,6 +83,9 @@
       experimental = {
         xx_color_management_v4 = true;
       };
+      windowrulev2 = [
+        "suppressevent fullscreen maximize, class:^(steam_app_534380)$"
+      ];
     };
   };
 
