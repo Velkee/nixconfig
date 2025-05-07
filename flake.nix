@@ -18,13 +18,17 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
   };
 
   outputs = inputs @ {
+    dolphin-overlay,
     home-manager,
     lix-module,
     nixpkgs,
@@ -75,6 +79,7 @@
               };
             };
 
+            nixpkgs.overlays = [dolphin-overlay.overlays.default];
             system.stateVersion = stateVersion;
           }
         ];
