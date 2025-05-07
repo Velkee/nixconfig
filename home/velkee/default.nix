@@ -26,6 +26,7 @@
       ];
     })
     clonehero
+    gcr
     hydrus
     kdePackages.ark
     kdePackages.dolphin
@@ -38,7 +39,6 @@
     strawberry-qt6
     vesktop
     xivlauncher
-    gcr
   ];
 
   services.gnome-keyring.enable = true;
