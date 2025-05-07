@@ -32,6 +32,7 @@
     kdePackages.dolphin
     kdePackages.gwenview
     krita
+    libreoffice
     mangohud
     obsidian
     osu-lazer-bin
