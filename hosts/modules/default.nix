@@ -78,6 +78,8 @@
       nerd-fonts.fira-code
       noto-fonts
       noto-fonts-color-emoji
+      source-sans
+      source-serif
     ];
 
     fontconfig.defaultFonts = {
