@@ -26,11 +26,13 @@
       ];
     })
     clonehero
+    gcr
     hydrus
     kdePackages.ark
     kdePackages.dolphin
     kdePackages.gwenview
     krita
+    libreoffice
     mangohud
     obsidian
     osu-lazer-bin
@@ -38,7 +40,6 @@
     strawberry-qt6
     vesktop
     xivlauncher
-    gcr
   ];
 
   services.gnome-keyring.enable = true;
