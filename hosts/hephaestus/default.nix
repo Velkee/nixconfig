@@ -25,6 +25,10 @@
   steam.enable = true;
   tailscale.enable = true;
   wine.enable = true;
+  docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [
