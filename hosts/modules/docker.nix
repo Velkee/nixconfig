@@ -34,9 +34,16 @@ in {
         };
     };
 
-    users.users.${username} = mkIf cfg.rootless {
-      autoSubUidGidRange = true;
-    };
+    users.users.${username} =
+      if cfg.rootless
+      then {
+        autoSubUidGidRange = true;
+      }
+      else {
+        extraGroups = [
+          "docker"
+        ];
+      };
 
     environment.variables = mkIf (!cfg.rootless) {
       DOCKER_HOST = "unix:///run/docker.sock";
