@@ -10,7 +10,6 @@
   docker = {
     enable = true;
     storageDriver = "btrfs";
-    rootless = true;
   };
   fcitx5.enable = true;
   hyprland = {
