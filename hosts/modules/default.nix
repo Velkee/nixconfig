@@ -76,23 +76,28 @@
     packages = with pkgs; [
       ipaexfont
       nerd-fonts.fira-code
-      noto-fonts
       noto-fonts-color-emoji
+      source-han-sans-korean
+      source-han-sans-simplified-chinese
+      source-han-serif-korean
+      source-han-serif-simplified-chinese
       source-sans
       source-serif
     ];
 
-    fontconfig.defaultFonts = {
-      serif = [
-        "Noto Serif"
-        "IPAexMincho"
-      ];
-      sansSerif = [
-        "Noto Sans"
-        "IPAexGothic"
-      ];
-      monospace = ["FiraCode Nerd Font Mono"];
-      emoji = ["Noto Color Emoji"];
+    fontconfig = {
+      defaultFonts = {
+        serif = [
+          "Source Serif 4"
+          "IPAexMincho"
+        ];
+        sansSerif = [
+          "Source Sans 3"
+          "IPAexGothic"
+        ];
+        monospace = ["FiraCode Nerd Font Mono"];
+        emoji = ["Noto Color Emoji"];
+      };
     };
   };
 
