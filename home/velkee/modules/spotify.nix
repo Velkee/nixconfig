@@ -1,21 +1,18 @@
 {
-  inputs,
-  pkgs,
-  ...
-}: {
-  imports = [
-    inputs.spicetify-nix.homeManagerModules.default
-  ];
-
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-  in {
+  programs.spotify-player = {
     enable = true;
-    enabledExtensions = with spicePkgs.extensions; [
-      shuffle
-    ];
-
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    settings = {
+      theme = "catppuccin-mocha";
+      client_id = "22d5a4dc3aaf422d805807f8231985ac";
+      copy_command = {
+        command = "wl-copy";
+        args = [];
+      };
+      device = {
+        volume = 100;
+        audio_cache = true;
+        normalization = true;
+      };
+    };
   };
 }
