@@ -52,6 +52,8 @@ in {
         monitor = cfg.monitor;
       };
 
+      services.hyprpolkitagent.enable = true;
+
       services.hyprpaper = mkIf cfg.wallpaper.enable {
         enable = true;
 
