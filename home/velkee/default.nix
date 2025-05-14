@@ -40,6 +40,7 @@
     strawberry-qt6
     vesktop
     xivlauncher
+    networkmanagerapplet
   ];
 
   services.gnome-keyring.enable = true;
