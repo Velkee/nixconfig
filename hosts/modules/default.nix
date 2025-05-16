@@ -101,7 +101,11 @@
     };
   };
 
-  security.rtkit.enable = true;
+  security = {
+    rtkit.enable = true;
+    sudo-rs.enable = true;
+    sudo.enable = false;
+  };
   services = {
     pipewire = {
       enable = true;
