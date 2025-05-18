@@ -79,7 +79,7 @@
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
-        inactive_opacity = 0.8;
+        inactive_opacity = 0.9;
         dim_special = 0.2;
       };
       general = {
@@ -93,6 +93,7 @@
       };
       windowrulev2 = [
         "suppressevent fullscreen maximize, class:^(steam_app_534380)$"
+        "opacity 1.0 override 1.0 override, title:.*(YouTube).*"
       ];
     };
   };
