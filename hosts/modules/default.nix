@@ -15,6 +15,7 @@
     ./tailscale.nix
     ./unbound.nix
     ./wine.nix
+    ./vr.nix
   ];
 
   users.users.${username} = {

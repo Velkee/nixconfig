@@ -33,6 +33,7 @@
   steam.enable = true;
   tailscale.enable = true;
   wine.enable = true;
+  vr.enable = true;
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
