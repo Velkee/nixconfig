@@ -6,4 +6,6 @@
       "widget.dmabuf.force-enabled" = true;
     };
   };
+
+  stylix.targets.firefox.profileNames = ["default"];
 }

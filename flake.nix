@@ -1,14 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixvim = {
-      url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -19,15 +12,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dolphin-overlay.url = "github:rumboon/dolphin-overlay";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    stylix.url = "github:nix-community/stylix";
   };
 
   outputs = inputs @ {
-    dolphin-overlay,
     home-manager,
     lix-module,
     nixpkgs,
     nixvim,
+    stylix,
     ...
   }: let
     system = "x86_64-linux";
@@ -56,11 +56,13 @@
           ./hosts/${hostname}
           home-manager.nixosModules.home-manager
           lix-module.nixosModules.default
+          stylix.nixosModules.stylix
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = specialArgs;
+              backupFileExtension = ".old";
 
               users.${username} = {
                 home = {
@@ -74,7 +76,6 @@
               };
             };
 
-            nixpkgs.overlays = [dolphin-overlay.overlays.default];
             system.stateVersion = stateVersion;
           }
         ];
