@@ -6,7 +6,6 @@
 }: {
   imports = [
     ./docker.nix
-    ./fcitx5.nix
     ./hyprland.nix
     ./libvirt.nix
     ./openrgb.nix

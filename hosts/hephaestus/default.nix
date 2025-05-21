@@ -11,7 +11,6 @@
     ../modules
   ];
 
-  fcitx5.enable = true;
   hyprland = {
     enable = true;
     monitor = [

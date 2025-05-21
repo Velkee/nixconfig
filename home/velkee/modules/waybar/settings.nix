@@ -17,11 +17,12 @@
     };
 
     clock = {
+      format = "{:%H:%M}  ";
       tooltip-format = "<tt><small>{calendar}</small></tt>";
       calendar = {
         mode = "year";
         mode-mon-col = 3;
-        week-pos = "left";
+        week-pos = "right";
         format = {
           months = "<b>{}</b>";
           days = "<b>{}</b>";
@@ -36,10 +37,6 @@
       format-muted = "";
       on-click = "pwvucontrol";
       format-icons = ["" "" ""];
-    };
-    tray = {
-      icon-size = 24;
-      spacing = 10;
     };
   };
 }
