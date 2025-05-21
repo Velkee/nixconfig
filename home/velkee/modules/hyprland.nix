@@ -3,7 +3,11 @@
   pkgs,
   ...
 }: {
-  stylix.targets.wofi.enable = true;
+  stylix.targets = {
+    wofi.enable = true;
+    hyprlock.enable = false;
+  };
+
   programs.wofi.enable = true;
   programs.waybar = {
     enable = true;
