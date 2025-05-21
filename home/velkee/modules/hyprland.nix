@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: {
+  stylix.targets.wofi.enable = true;
   programs.wofi.enable = true;
   programs.waybar = {
     enable = true;
@@ -22,10 +23,7 @@
         "QT_QPA_PLATFORM,wayland;xcb"
         "QT_QPA_PLATFORMTHEME,qt5ct"
 
-        "HYPRCURSOR_THEME,Catppuccin Mocha Pink"
-        "HYPRCURSOR_SIZE,32"
-
-        "XCURSOR_THEME,catppuccin-mocha-pink-cursor"
+        "XCURSOR_THEME,phinger-cursors-dark"
         "XCURSOR_SIZE,24"
       ];
       bind =

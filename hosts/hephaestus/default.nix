@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./filesystems.nix
@@ -16,8 +20,8 @@
     ];
     wallpaper = {
       enable = true;
-      preload = ["/home/velkee/nix/wallpapers/wallpaper-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
-      assign = ["DP-3,/home/velkee/nix/wallpapers/wallpaper-ws.png" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
+      preload = ["/home/velkee/nix/wallpapers/janedoe-ws.jpg" "/home/velkee/nix/wallpapers/ligma.jpg"];
+      assign = ["DP-3,/home/velkee/nix/wallpapers/janedoe-ws.jpg" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
     };
   };
   libvirt.enable = true;
@@ -44,4 +48,44 @@
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/janedoe-ws.jpg;
+    polarity = "dark";
+    targets = {
+      qt.enable = true;
+    };
+
+    fonts = {
+      serif = {
+        package = pkgs.source-serif;
+        name = "Source Serif 4";
+      };
+      sansSerif = {
+        package = pkgs.source-sans;
+        name = "Source Sans 3";
+      };
+      monospace = {
+        package = pkgs.nerd-fonts.fira-mono;
+        name = "FiraCode Nerd Font Mono";
+      };
+
+      sizes = {
+        applications = 14;
+        desktop = 12;
+        popups = 12;
+        terminal = 14;
+      };
+    };
+
+    cursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      size = 24;
+    };
+
+    opacity.terminal = 0.9;
+  };
+
 }

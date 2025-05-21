@@ -7,7 +7,6 @@
     ./mpv.nix
     ./nixvim.nix
     ./spotify.nix
-    ./theme.nix
     ./waybar
     ./zsh
   ];

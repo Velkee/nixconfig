@@ -14,6 +14,11 @@
     resolution = "1440p";
   };
 
+  gtk.iconTheme = {
+    name = "BeautyLine";
+    package = pkgs.beauty-line-icon-theme;
+  };
+
   home.packages = with pkgs; [
     anki
     bitwarden-desktop
@@ -30,6 +35,7 @@
     hydrus
     kdePackages.ark
     kdePackages.dolphin
+    kdePackages.kservice
     kdePackages.gwenview
     krita
     libreoffice

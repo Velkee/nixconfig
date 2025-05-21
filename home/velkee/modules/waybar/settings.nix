@@ -37,5 +37,9 @@
       on-click = "pwvucontrol";
       format-icons = ["" "" ""];
     };
+    tray = {
+      icon-size = 24;
+      spacing = 10;
+    };
   };
 }
