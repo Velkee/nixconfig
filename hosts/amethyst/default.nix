@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  username,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./filesystems.nix
@@ -11,7 +15,6 @@
     enable = true;
     storageDriver = "btrfs";
   };
-  fcitx5.enable = true;
   hyprland = {
     enable = true;
     monitor = [
@@ -63,5 +66,44 @@
       nss
       nspr
     ];
+  };
+
+  stylix = {
+    enable = true;
+    image = ../../wallpapers/mizuki.png;
+    polarity = "dark";
+    targets = {
+      qt.enable = true;
+    };
+
+    fonts = {
+      serif = {
+        package = pkgs.source-serif;
+        name = "Source Serif 4";
+      };
+      sansSerif = {
+        package = pkgs.source-sans;
+        name = "Source Sans 3";
+      };
+      monospace = {
+        package = pkgs.nerd-fonts.fira-mono;
+        name = "FiraCode Nerd Font Mono";
+      };
+
+      sizes = {
+        applications = 14;
+        desktop = 12;
+        popups = 12;
+        terminal = 14;
+      };
+    };
+
+    cursor = {
+      package = pkgs.phinger-cursors;
+      name = "phinger-cursors-dark";
+      size = 24;
+    };
+
+    opacity.terminal = 0.9;
   };
 }
