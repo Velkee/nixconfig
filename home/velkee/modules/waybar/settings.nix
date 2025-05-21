@@ -4,7 +4,6 @@
     position = "top";
     modules-left = [
       "hyprland/workspaces"
-      "hyprland/window"
     ];
     modules-center = ["clock"];
     modules-right = [
