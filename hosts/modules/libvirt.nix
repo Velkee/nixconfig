@@ -21,7 +21,7 @@ in {
         qemu = {
           swtpm.enable = true;
           ovmf.packages = [pkgs.OVMFFull.fd];
-          vhostUserPackages = [ pkgs.virtiofsd ];
+          vhostUserPackages = [pkgs.virtiofsd];
         };
       };
       spiceUSBRedirection.enable = true;
