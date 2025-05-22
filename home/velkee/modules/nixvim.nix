@@ -229,6 +229,7 @@
         yamlls.enable = true;
         nil_ls.enable = true;
         lua_ls.enable = true;
+        dockerls.enable = true;
       };
     };
   };
