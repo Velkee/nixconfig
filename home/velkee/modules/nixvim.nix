@@ -6,6 +6,7 @@
 
     opts = {
       number = true;
+      relativenumber = true;
       clipboard = "unnamedplus";
       autoindent = true;
       cursorline = true;
@@ -20,24 +21,9 @@
       termguicolors = true;
     };
 
-    colorschemes.catppuccin = {
-      enable = true;
-      settings = {
-        flavour = "mocha";
-      };
-    };
-
     # Split me!
     plugins = {
-      nvim-autopairs = {
-        enable = true;
-        settings = {
-          disable_filetype = [
-            "TelescopePrompt"
-            "vim"
-          ];
-        };
-      };
+      nvim-autopairs.enable = true;
 
       colorizer.enable = true;
 
@@ -147,26 +133,7 @@
         };
       };
 
-      lsp = {
-        enable = true;
-        capabilities = "require('cmp_nvim_lsp').default_capabilities()";
-
-        servers = {
-          eslint.enable = true;
-          html.enable = true;
-          cssls.enable = true;
-          jsonls.enable = true;
-          rust_analyzer = {
-            enable = true;
-            installCargo = false;
-            installRustc = false;
-          };
-          yamlls.enable = true;
-          taplo.enable = true;
-          nil_ls.enable = true;
-          lua_ls.enable = true;
-        };
-      };
+      lspconfig.enable = true;
 
       cmp = {
         enable = true;
@@ -179,7 +146,7 @@
             "<C-f>" = "cmp.mapping.scroll_docs(4)";
             "<C-space>" = "cmp.mapping.complete()";
             "<C-e>" = "cmp.mapping.close()";
-            "<CR>" = "cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true, })";
+            "<CR>" = "cmp.mapping.confirm({ select = true, })";
             "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
           };
@@ -190,12 +157,6 @@
             {name = "buffer";}
           ];
         };
-        luaConfig.post = ''
-          vim.cmd([[
-            set completeopt=menuone,noinsert,noselect
-            highlight! default link CmpItemKind CmpItemMenuDefault
-          ]])
-        '';
       };
 
       lualine.enable = true;
@@ -255,6 +216,20 @@
       };
 
       web-devicons.enable = true;
+    };
+
+    lsp = {
+      inlayHints.enable = true;
+      servers = {
+        eslint.enable = true;
+        html.enable = true;
+        cssls.enable = true;
+        jsonls.enable = true;
+        rust_analyzer.enable = true;
+        yamlls.enable = true;
+        nil_ls.enable = true;
+        lua_ls.enable = true;
+      };
     };
   };
 }
