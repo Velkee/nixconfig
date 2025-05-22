@@ -18,7 +18,6 @@
         autoSetupRemote = true;
       };
       diff = {
-        algorithm = "histogram";
         colorMoved = "default";
       };
       rerere = {

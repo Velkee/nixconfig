@@ -1,4 +1,8 @@
 ''
+  * {
+    color: @base05;
+  }
+
   window#waybar {
     background: transparent;
   }
@@ -20,15 +24,23 @@
     background: @base00;
   }
 
+  #workspaces {
+    margin-left: 10px;
+
+  }
   #workspaces button {
-    background: @base03;
+    background: @base01;
     border-radius: 5px;
     padding: 0px 12px;
     margin: 4px;
   }
 
-  #workspaces {
-    margin-left: 10px;
+  #workspaces button.active {
+    background: @base02;
+  }
+
+  #workspaces button.urgent {
+    background: @base09;
   }
 
   #tray {
