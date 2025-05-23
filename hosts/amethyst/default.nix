@@ -24,10 +24,10 @@
     wallpaper = {
       enable = true;
       preload = [
-        "/home/velkee/nix/wallpapers/mizuki.png"
+        "/home/velkee/nix/wallpapers/mizu.png"
         "/home/velkee/nix/wallpapers/luka.png"
       ];
-      assign = ["DP-2,/home/velkee/nix/wallpapers/mizuki.png" "DP-3,/home/velkee/nix/wallpapers/luka.png"];
+      assign = ["DP-2,/home/velkee/nix/wallpapers/mizu.png" "DP-3,/home/velkee/nix/wallpapers/luka.png"];
     };
   };
   libvirt.enable = true;
@@ -70,7 +70,7 @@
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/mizuki.png;
+    image = ../../wallpapers/mizu.png;
     polarity = "dark";
     targets = {
       qt.enable = true;
