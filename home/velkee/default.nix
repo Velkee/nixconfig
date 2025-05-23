@@ -19,6 +19,8 @@
     package = pkgs.beauty-line-icon-theme;
   };
 
+  programs.vesktop.enable = true;
+
   home.packages = with pkgs; [
     anki
     bitwarden-desktop
@@ -44,7 +46,6 @@
     osu-lazer-bin
     pwvucontrol
     strawberry-qt6
-    vesktop
     xivlauncher
     networkmanagerapplet
   ];

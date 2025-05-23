@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ./filesystems.nix
@@ -83,7 +79,5 @@
       name = "phinger-cursors-dark";
       size = 24;
     };
-
-    opacity.terminal = 0.9;
   };
 }
