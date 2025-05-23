@@ -38,7 +38,7 @@
           "$mod, F, exec, firefox"
           "$mod, R, exec, wofi --show drun"
           "$mod, E, exec, dolphin"
-          "Control_L, L, exec, hyprlock"
+          "$mod, L, exec, hyprlock"
           ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
           "$mod, F7, exec, grim -g \"$(slurp -d)\" - | wl-copy"
 
@@ -46,11 +46,6 @@
           "$mod, right, movefocus, r"
           "$mod, up, movefocus, u"
           "$mod, down, movefocus, d"
-
-          "$mod, H, movefocus, l"
-          "$mod, L, movefocus, r"
-          "$mod, K, movefocus, u"
-          "$mod, J, movefocus, d"
 
           "$mod, V, togglefloating"
           "$mod SHIFT, F, fullscreen, 0"
