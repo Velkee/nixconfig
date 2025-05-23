@@ -15,8 +15,8 @@
     ];
     wallpaper = {
       enable = true;
-      preload = ["/home/velkee/nix/wallpapers/janedoe-ws.jpg" "/home/velkee/nix/wallpapers/ligma.jpg"];
-      assign = ["DP-3,/home/velkee/nix/wallpapers/janedoe-ws.jpg" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
+      preload = ["/home/velkee/nix/wallpapers/chuuni-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
+      assign = ["DP-3,/home/velkee/nix/wallpapers/chuuni-ws.png" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
     };
   };
   libvirt.enable = true;
@@ -46,7 +46,7 @@
 
   stylix = {
     enable = true;
-    image = ../../wallpapers/janedoe-ws.jpg;
+    image = ../../wallpapers/chuuni-ws.png;
     polarity = "dark";
     targets = {
       qt.enable = true;
