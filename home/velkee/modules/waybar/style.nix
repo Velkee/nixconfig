@@ -35,12 +35,16 @@
     margin: 4px;
   }
 
-  #workspaces button.active {
+  #workspaces button.visible {
     background: @base02;
   }
 
+  #workspaces button.active {
+    background: @base0A;
+  }
+
   #workspaces button.urgent {
-    background: @base09;
+    background: @base08;
   }
 
   #tray {

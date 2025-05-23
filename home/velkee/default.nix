@@ -9,6 +9,8 @@
     ./modules
   ];
 
+  programs.vesktop.enable = true;
+
   mpv = {
     enable = true;
     resolution = "1440p";
