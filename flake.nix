@@ -53,26 +53,22 @@
         inherit system specialArgs pkgs;
 
         modules = [
-          ./hosts/${hostname}
           home-manager.nixosModules.home-manager
           lix-module.nixosModules.default
           stylix.nixosModules.stylix
+
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = specialArgs;
-              backupFileExtension = ".old";
+              backupFileExtension = "old";
 
               users.${username} = {
                 home = {
                   inherit username stateVersion;
                   homeDirectory = "/home/${username}";
                 };
-
-                imports = [
-                  ./home/${username}
-                ];
               };
             };
 
