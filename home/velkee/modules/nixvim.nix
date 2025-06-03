@@ -4,6 +4,10 @@
     defaultEditor = true;
     vimdiffAlias = true;
 
+    diagnostic.settings = {
+      virtual_lines = true;
+    };
+
     opts = {
       number = true;
       relativenumber = true;
@@ -162,6 +166,13 @@
       lualine.enable = true;
       neo-tree.enable = true;
 
+      telescope = {
+        enable = true;
+        keymaps = {
+          "<leader>fg" = "live_grep";
+        };
+      };
+
       treesitter = {
         enable = true;
         settings = {
@@ -185,6 +196,10 @@
       web-devicons.enable = true;
     };
 
+    dependencies = {
+      ripgrep.enable = true;
+    };
+
     lsp = {
       inlayHints.enable = true;
       servers = {
@@ -196,7 +211,7 @@
         yamlls.enable = true;
         nil_ls.enable = true;
         lua_ls.enable = true;
-        dockerls.enable = true;
+        docker_compose_language_service.enable = true;
       };
     };
   };
