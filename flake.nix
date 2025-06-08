@@ -50,12 +50,17 @@
       stateVersion,
     }:
       nixpkgs.lib.nixosSystem {
-        inherit system specialArgs pkgs;
+        inherit system pkgs;
+        specialArgs = specialArgs ++ {inherit hostname;};
 
         modules = [
           home-manager.nixosModules.home-manager
           lix-module.nixosModules.default
           stylix.nixosModules.stylix
+
+          ./home
+          ./systems
+          ./modules
 
           {
             home-manager = {
@@ -92,6 +97,7 @@
 
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
+        nil
         alejandra
       ];
 
