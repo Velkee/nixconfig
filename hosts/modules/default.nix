@@ -15,6 +15,7 @@
     ./unbound.nix
     ./wine.nix
     ./vr.nix
+    ./ly.nix
   ];
 
   users.users.${username} = {

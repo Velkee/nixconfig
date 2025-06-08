@@ -32,7 +32,7 @@
   };
   libvirt.enable = true;
   openrgb.enable = true;
-  sddm.enable = true;
+  ly.enable = true;
   steam.enable = true;
   tailscale.enable = true;
   wine.enable = true;
