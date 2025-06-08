@@ -8,14 +8,14 @@
     ./docker.nix
     ./hyprland.nix
     ./libvirt.nix
+    ./ly.nix
     ./openrgb.nix
     ./sddm.nix
     ./steam.nix
     ./tailscale.nix
     ./unbound.nix
-    ./wine.nix
     ./vr.nix
-    ./ly.nix
+    ./wine.nix
   ];
 
   users.users.${username} = {
