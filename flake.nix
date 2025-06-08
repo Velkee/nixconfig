@@ -98,6 +98,10 @@
       buildInputs = with pkgs; [
         alejandra
       ];
+
+      shellHook = ''
+        zsh
+      '';
     };
   };
 }
