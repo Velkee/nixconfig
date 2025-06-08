@@ -80,15 +80,18 @@ in {
       ];
       scriptOpts = {
         subs2srs = {
-          deck_name = "Lapis";
+          deck_name = "Default";
           model_name = "Lapis";
-          audio_field = "ExpressionAudio";
-          image_field = "Picture";
-          note_tag = "アニメ::%n";
 
+          sentence_field = "Sentence";
+          audio_field = "SentenceAudio";
+          image_field = "Picture";
+          note_tag = "";
+
+          autoclip = "yes";
           autoclip_method = "clipboard";
 
-          snapshot_format = "webp";
+          snapshot_format = "avif";
         };
       };
       profiles = {
