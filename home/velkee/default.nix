@@ -27,6 +27,9 @@
           }
         ];
       };
+      petpet = {
+        enabled = true;
+      };
     };
   };
 
