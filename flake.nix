@@ -24,86 +24,54 @@
 
   outputs = inputs @ {
     home-manager,
+    hyprland,
     lix-module,
     nixpkgs,
     nixvim,
     stylix,
     ...
   }: let
-    system = "x86_64-linux";
-    username = "velkee";
-
-    specialArgs = {
-      inherit username;
-      inherit inputs;
-    };
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfree = true;
-      };
-    };
-
-    mkSystem = {
-      hostname,
-      stateVersion,
-    }:
-      nixpkgs.lib.nixosSystem {
-        inherit system pkgs;
-        specialArgs = specialArgs ++ {inherit hostname;};
-
-        modules = [
-          home-manager.nixosModules.home-manager
-          lix-module.nixosModules.default
-          stylix.nixosModules.stylix
-
-          ./home
-          ./systems
-          ./modules
-
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = specialArgs;
-              backupFileExtension = "old";
-
-              users.${username} = {
-                home = {
-                  inherit username stateVersion;
-                  homeDirectory = "/home/${username}";
-                };
+    supportedSystems = [
+      "x86_64-linux"
+    ];
+    forEachSupportedSystem = f:
+      nixpkgs.lib.genAttrs supportedSystems (
+        system:
+          f {
+            pkgs = import nixpkgs {
+              inherit system;
+              config = {
+                allowUnfree = true;
               };
             };
-
-            system.stateVersion = stateVersion;
           }
-        ];
-      };
+      );
   in {
     nixosConfigurations = {
-      amethyst = mkSystem {
-        hostname = "amethyst";
-        stateVersion = "24.05";
-      };
-      hephaestus = mkSystem {
-        hostname = "hephaestus";
-        stateVersion = "24.11";
+      "amethyst" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/amethyst/configuration.nix
+          lix-module.nixosModules.default
+        ];
       };
     };
 
-    formatter.${system} = pkgs.alejandra;
+    formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
+    devShells = forEachSupportedSystem ({pkgs}: {
+      default = with pkgs;
+        mkShell {
+          buildInputs = [
+            nil
+            alejandra
+          ];
 
-    devShells.${system}.default = pkgs.mkShell {
-      buildInputs = with pkgs; [
-        nil
-        alejandra
-      ];
-
-      shellHook = ''
-        zsh
-      '';
-    };
+          shellHook = ''
+            zsh
+          '';
+        };
+    });
   };
 }
