@@ -209,7 +209,7 @@
         jsonls.enable = true;
         rust_analyzer.enable = true;
         yamlls.enable = true;
-        nil_ls.enable = true;
+        nixd.enable = true;
         lua_ls.enable = true;
         docker_compose_language_service.enable = true;
       };
