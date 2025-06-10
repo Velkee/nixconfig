@@ -28,6 +28,7 @@ in
             inherit (cfg) monitor;
 
             "$mod" = "SUPER";
+            "$filemanager" = "thunar";
 
             exec-once = [
               "hyprpaper"
@@ -41,7 +42,7 @@ in
                 "$mod, C, killactive"
                 "$mod, F, exec, firefox"
                 "$mod, R, exec, wofi --show drun"
-                "$mod, E, exec, dolphin"
+                "$mod, E, exec, $filemanager"
                 "$mod, L, exec, hyprlock"
                 ", Print, exec, grim -g \"$(slurp -d)\" - | wl-copy"
                 "$mod, F7, exec, grim -g \"$(slurp -d)\" - | wl-copy"
