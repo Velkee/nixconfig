@@ -44,7 +44,7 @@ in
     config = mkIf user.enable {
       modules.system.shell.fish.enable = mkIf (user.shell.package == pkgs.fish) true;
 
-      nix.settings.trusted-user = ["${user.name}"];
+      nix.settings.trusted-users = ["${user.name}"];
 
       users.groups.${user.name} = {};
 

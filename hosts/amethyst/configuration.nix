@@ -4,11 +4,12 @@
 
     ../../modules/nixos/import.nix
     ../../modules/home/import.nix
-    # ../../modules/nixvim/import.nix
+    ../../modules/nixvim
   ];
 
   config = {
     system.stateVersion = "24.05";
+    boot.kernelPackages = pkgs.linuxPackages_zen;
 
     stylix = {
       enable = true;
@@ -51,7 +52,7 @@
         boot.grub.enable = true;
 
         locale = {
-          extraLocales = ["ja_JP.UTF-8"];
+          extraLocales = ["ja_JP.UTF-8/UTF-8"];
         };
 
         sound.pipewire.enable = true;
@@ -70,22 +71,30 @@
         sddm.enable = true;
         hyprland = {
           enable = true;
-          monitor = ["DP-2, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10" "DP-3, 2560x1440@60, -2560x0 , 1"];
+          monitor = ["DP-5, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10" "DP-6, 2560x1440@60, -2560x0, 1"];
         };
         hyprpaper = {
           enable = true;
           preload = ["/home/velkee/nix/wallpapers/mizu.png" "/home/velkee/nix/wallpapers/luka.png"];
-          wallpaper = ["DP-2,/home/velkee/nix/wallpapers/mizu.png" "DP-3,home/velkee/nix/wallpapers/luka.png"];
+          wallpaper = ["DP-5,/home/velkee/nix/wallpapers/mizu.png" "DP-6,/home/velkee/nix/wallpapers/luka.png"];
         };
         waybar.enable = true;
       };
 
       applications = {
+        mpv = {
+          enable = true;
+          resolution = "1440p";
+        };
+
+        anki.enable = true;
         firefox.enable = true;
         kitty.enable = true;
+        steam.enable = true;
         syncthing.enable = true;
         thunar.enable = true;
         vesktop.enable = true;
+        wofi.enable = true;
       };
 
       cli-tools = {
