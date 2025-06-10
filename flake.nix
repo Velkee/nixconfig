@@ -55,6 +55,7 @@
         modules = [
           ./hosts/amethyst/configuration.nix
           lix-module.nixosModules.default
+          stylix.nixosModules.stylix
         ];
       };
     };
@@ -64,7 +65,7 @@
       default = with pkgs;
         mkShell {
           buildInputs = [
-            nil
+            nixd
             alejandra
           ];
 

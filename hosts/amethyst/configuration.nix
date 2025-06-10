@@ -3,12 +3,42 @@
     ./hardware-configuration.nix
 
     ../../modules/nixos/import.nix
-    # ../../modules/home/import.nix
+    ../../modules/home/import.nix
     # ../../modules/nixvim/import.nix
   ];
 
   config = {
     system.stateVersion = "24.05";
+
+    stylix = {
+      enable = true;
+      image = ../../wallpapers/chuuni-ws.png;
+      polarity = "dark";
+      targets = {
+        qt.enable = true;
+      };
+
+      fonts = {
+        serif = {
+          package = pkgs.source-serif;
+          name = "Source Serif 4";
+        };
+        sansSerif = {
+          package = pkgs.source-sans;
+          name = "Source Sans 3";
+        };
+        monospace = {
+          package = pkgs.nerd-fonts.fira-mono;
+          name = "FiraCode Nerd Font Mono";
+        };
+      };
+
+      cursor = {
+        package = pkgs.phinger-cursors;
+        name = "phinger-cursors-dark";
+        size = 24;
+      };
+    };
 
     modules = {
       user = {
@@ -30,7 +60,15 @@
 
       desktop = {
         sddm.enable = true;
-        hyprland.enable = true;
+        hyprland = {
+          enable = true;
+          monitor = ["eDP-1, 1920x1080@60, auto, 1" "DP-3, 5120x1440@60, auto, 1, vrr, 2, bitdepth, 10"];
+        };
+        hyprpaper = {
+          enable = true;
+          preload = ["/home/velkee/nix/wallpapers/chuuni-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
+          wallpaper = ["DP-3,/home/velkee/nix/wallpapers/chuuni-ws.png" "eDP-1,home/velkee/nix/wallpapers/ligma.jpg"];
+        };
       };
     };
   };
