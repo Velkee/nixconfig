@@ -56,6 +56,14 @@
 
         sound.pipewire.enable = true;
         video.nvidia.enable = true;
+
+        networking = {
+          networkmanager = {
+            enable = true;
+            hostname = "amethyst";
+          };
+          avahi.enable = true;
+        };
       };
 
       desktop = {
@@ -71,5 +79,16 @@
         };
       };
     };
+
+    fileSystems = {
+      "/".options = ["compress-force=zstd" "noatime"];
+      "/nix".options = ["compress-force=zstd" "noatime"];
+      "/.swap".options = ["noatime"];
+      "/home".options = ["compress-force=zstd" "noatime"];
+      "/media/games".options = ["compress-force=zstd" "noatime"];
+      "/media/storage".options = ["compress-force=zstd" "noatime"];
+    };
+
+    swapDevices = [{device = "/.swap/swapfile";}];
   };
 }
