@@ -45,6 +45,7 @@
       user = {
         enable = true;
         home-manager.enable = true;
+        ssh.enable = true;
         shell.package = pkgs.fish;
       };
 
