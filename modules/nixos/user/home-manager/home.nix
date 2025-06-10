@@ -1,6 +1,7 @@
 {user, ...}: {
   config = {
     programs.home-manager.enable = true;
+    xdg.enable = true;
 
     home = {
       username = "${user.name}";

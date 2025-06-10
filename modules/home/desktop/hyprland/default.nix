@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: let
   inherit (config.modules) user;
@@ -17,12 +18,21 @@ in
 
     config = mkIf cfg.enable {
       home-manager.users.${user.name} = {
+        home.packages = with pkgs; [
+          grim
+          slurp
+        ];
         wayland.windowManager.hyprland = {
           enable = true;
           settings = {
             inherit (cfg) monitor;
 
             "$mod" = "SUPER";
+
+            exec-once = [
+              "hyprpaper"
+              "waybar"
+            ];
 
             bind =
               [

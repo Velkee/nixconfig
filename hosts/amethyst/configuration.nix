@@ -12,7 +12,7 @@
 
     stylix = {
       enable = true;
-      image = ../../wallpapers/chuuni-ws.png;
+      image = ../../wallpapers/mizu.png;
       polarity = "dark";
       targets = {
         qt.enable = true;
@@ -70,13 +70,26 @@
         sddm.enable = true;
         hyprland = {
           enable = true;
-          monitor = ["eDP-1, 1920x1080@60, auto, 1" "DP-3, 5120x1440@60, auto, 1, vrr, 2, bitdepth, 10"];
+          monitor = ["DP-2, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10" "DP-3, 2560x1440@60, -2560x0 , 1"];
         };
         hyprpaper = {
           enable = true;
-          preload = ["/home/velkee/nix/wallpapers/chuuni-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
-          wallpaper = ["DP-3,/home/velkee/nix/wallpapers/chuuni-ws.png" "eDP-1,home/velkee/nix/wallpapers/ligma.jpg"];
+          preload = ["/home/velkee/nix/wallpapers/mizu.png" "/home/velkee/nix/wallpapers/luka.png"];
+          wallpaper = ["DP-2,/home/velkee/nix/wallpapers/mizu.png" "DP-3,home/velkee/nix/wallpapers/luka.png"];
         };
+        waybar.enable = true;
+      };
+
+      applications = {
+        firefox.enable = true;
+        kitty.enable = true;
+        syncthing.enable = true;
+        thunar.enable = true;
+        vesktop.enable = true;
+      };
+
+      cli-tools = {
+        git.enable = true;
       };
     };
 
