@@ -60,6 +60,24 @@
           extraLocales = ["ja_JP.UTF-8/UTF-8"];
         };
 
+        fonts = {
+          enable = true;
+          packages = with pkgs; [
+            ipaexfont
+            nerd-fonts.fira-code
+            noto-fonts-color-emoji
+            source-han-sans-korean
+            source-han-sans-simplified-chinese
+            source-han-serif-korean
+            source-sans
+            source-serif
+          ];
+
+          sans = ["Source Sans 3" "IPAexGothic"];
+          serif = ["Source Serif 4" "IPAexMincho"];
+          monospace = ["Fira Code Nerd Font Mono"];
+        };
+
         sound.pipewire.enable = true;
         video.nvidia.enable = true;
 
