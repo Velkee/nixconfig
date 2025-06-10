@@ -11,6 +11,10 @@
     system.stateVersion = "24.05";
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
+    environment.systemPackages = with pkgs; [
+      hydrus
+    ];
+
     stylix = {
       enable = true;
       image = ../../wallpapers/mizu.png;
