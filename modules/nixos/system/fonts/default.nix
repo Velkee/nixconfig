@@ -12,22 +12,29 @@ in
       packages = mkOption {
         type = with types; listOf package;
         default = with pkgs; [
-          dejavu_fonts
+          ipaexfont
+          nerd-fonts.fira-code
           noto-fonts-color-emoji
+          source-han-sans-korean
+          source-han-sans-simplified-chinese
+          source-han-serif-korean
+          source-han-serif-simplified-chinese
+          source-sans
+          source-serif
         ];
         description = "Fonts packages to install";
       };
       serif = mkOption {
         type = with types; listOf str;
-        default = ["DejaVu Serif"];
+        default = ["Source Serif 4" "IPAexMincho"];
       };
       sans = mkOption {
         type = with types; listOf str;
-        default = ["DejaVu Sans"];
+        default = ["Source Sans 3" "IPAexGothic"];
       };
       monospace = mkOption {
         type = with types; listOf str;
-        default = ["DejaVu Sans Mono"];
+        default = ["Fira Code Nerd Font Mono"];
       };
       emoji = mkOption {
         type = with types; listOf str;

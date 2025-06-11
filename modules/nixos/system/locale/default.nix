@@ -19,7 +19,7 @@ in
       };
       extraLocales = mkOption {
         type = with types; either (listOf str) (enum ["all"]);
-        default = [];
+        default = ["ja_JP.UTF-8/UTF-8"];
         description = "Extra locales to configure";
       };
     };
