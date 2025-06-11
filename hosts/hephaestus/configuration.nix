@@ -109,6 +109,7 @@
 
       cli-tools = {
         git.enable = true;
+        spotify_player.enable = true;
       };
 
       services = {
