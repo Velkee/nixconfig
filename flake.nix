@@ -5,8 +5,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
-
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/2.92.0-3.tar.gz";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,7 +22,6 @@
 
   outputs = inputs @ {
     home-manager,
-    hyprland,
     lix-module,
     nixpkgs,
     nixvim,
