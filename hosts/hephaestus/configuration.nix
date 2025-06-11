@@ -112,6 +112,10 @@
       };
 
       services = {
+        docker = {
+          enable = true;
+          storageDriver = "btrfs";
+        };
         wine.enable = true;
       };
     };
