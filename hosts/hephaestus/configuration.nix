@@ -110,6 +110,10 @@
       cli-tools = {
         git.enable = true;
       };
+
+      services = {
+        wine.enable = true;
+      };
     };
 
     fileSystems = {
