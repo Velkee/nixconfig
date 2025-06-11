@@ -58,6 +58,16 @@
           stylix.nixosModules.stylix
         ];
       };
+      "hephaestus" = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./hosts/hephaestus/configuration.nix
+          lix-module.nixosModules.default
+          stylix.nixosModules.stylix
+        ];
+      };
     };
 
     formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
