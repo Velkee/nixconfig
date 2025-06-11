@@ -70,6 +70,7 @@
             hostname = "hephaestus";
           };
           avahi.enable = true;
+          tailscale.enable = true;
         };
       };
 
