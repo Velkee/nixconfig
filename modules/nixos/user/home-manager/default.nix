@@ -19,6 +19,7 @@ in
         extraSpecialArgs = {
           inherit inputs;
           inherit user;
+          inherit (config.system) stateVersion;
         };
         users.${user.name}.imports = [./home.nix];
       };

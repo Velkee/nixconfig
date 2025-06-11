@@ -1,6 +1,7 @@
 {
   user,
   pkgs,
+  stateVersion,
   ...
 }: {
   config = {
@@ -13,8 +14,8 @@
     };
 
     home = {
+      inherit stateVersion;
       username = "${user.name}";
-      stateVersion = "24.05";
       homeDirectory = "${user.homeDir}";
     };
   };
