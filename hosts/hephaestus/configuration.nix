@@ -32,13 +32,6 @@
           package = pkgs.nerd-fonts.fira-mono;
           name = "FiraCode Nerd Font Mono";
         };
-
-        sizes = {
-          applications = 14;
-          desktop = 12;
-          popups = 12;
-          terminal = 14;
-        };
       };
 
       cursor = {
