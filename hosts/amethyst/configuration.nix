@@ -11,6 +11,8 @@
     system.stateVersion = "24.05";
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
+    time.timeZone = "Europe/Oslo";
+
     environment.systemPackages = with pkgs; [
       hydrus
     ];
@@ -94,6 +96,7 @@
         };
 
         anki.enable = true;
+        fcitx5.enable = true;
         firefox.enable = true;
         kitty.enable = true;
         steam.enable = true;
@@ -105,16 +108,26 @@
 
       cli-tools = {
         git.enable = true;
+        spotify_player.enable = true;
+      };
+
+      services = {
+        bluetooth.enable = true;
+        docker = {
+          enable = true;
+          storageDriver = "btrfs";
+        };
+        wine.enable = true;
       };
     };
 
     fileSystems = {
-      "/".options = ["compress-force=zstd" "noatime"];
-      "/nix".options = ["compress-force=zstd" "noatime"];
-      "/.swap".options = ["noatime"];
-      "/home".options = ["compress-force=zstd" "noatime"];
-      "/media/games".options = ["compress-force=zstd" "noatime"];
-      "/media/storage".options = ["compress-force=zstd" "noatime"];
+      "/".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
+      "/nix".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
+      "/.swap".options = ["noatime" "autodefrag" "commit=120"];
+      "/home".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
+      "/media/games".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
+      "/media/storage".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
     };
 
     swapDevices = [{device = "/.swap/swapfile";}];
