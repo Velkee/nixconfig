@@ -80,7 +80,7 @@
           ];
 
           shellHook = ''
-            zsh
+            fish
           '';
         };
     });
