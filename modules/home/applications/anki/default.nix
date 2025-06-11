@@ -4,6 +4,7 @@
   pkgs,
   ...
 }: let
+  inherit (config.modules) user;
   cfg = config.modules.applications.anki;
 in
   with lib; {
@@ -12,8 +13,10 @@ in
     };
 
     config = mkIf cfg.enable {
-      environment.systemPackages = [
-        pkgs.anki
-      ];
+      home-manager.users.${user.name} = {
+        home.packages = [
+          pkgs.anki
+        ];
+      };
     };
   }
