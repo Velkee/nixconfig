@@ -9,6 +9,7 @@ in
   with lib; {
     options.modules.system.video.nvidia = {
       enable = mkEnableOption "Enable NVIDIA graphics";
+      open = mkEnableOption "Enable open source kernel modules (Turing+ only)";
     };
 
     config = mkIf cfg.enable {
@@ -20,7 +21,7 @@ in
           ];
         };
         nvidia = {
-          open = true;
+          open = cfg.open;
           modesetting.enable = true;
         };
       };

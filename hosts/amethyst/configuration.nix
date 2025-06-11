@@ -79,7 +79,10 @@
         };
 
         sound.pipewire.enable = true;
-        video.nvidia.enable = true;
+        video.nvidia = {
+          enable = true;
+          open = true;
+        };
 
         networking = {
           networkmanager = {
