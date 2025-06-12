@@ -18,6 +18,11 @@
     };
 
     stylix.url = "github:nix-community/stylix";
+
+    satellite = {
+      url = "github:Supreeeme/xwayland-satellite?ref=v0.6";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs @ {
@@ -25,6 +30,7 @@
     lix-module,
     nixpkgs,
     nixvim,
+    satellite,
     stylix,
     ...
   }: let

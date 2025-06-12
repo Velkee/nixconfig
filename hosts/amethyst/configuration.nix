@@ -77,6 +77,7 @@
 
       desktop = {
         sddm.enable = true;
+        niri.enable = true;
         hyprland = {
           enable = true;
           monitor = ["DP-5, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10" "DP-6, 2560x1440@60, -2560x0, 1"];
