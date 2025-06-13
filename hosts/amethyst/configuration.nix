@@ -101,6 +101,7 @@
         fcitx5.enable = true;
         firefox.enable = true;
         kitty.enable = true;
+        obsidian.enable = true;
         steam.enable = true;
         syncthing.enable = true;
         thunar.enable = true;
