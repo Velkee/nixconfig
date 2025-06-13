@@ -78,7 +78,7 @@
       default = with pkgs;
         mkShell {
           buildInputs = [
-            nixd
+            nil
             alejandra
           ];
 
