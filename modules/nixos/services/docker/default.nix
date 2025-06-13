@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (lib) mkEnableOption mkOption types mkIf;
+  inherit (config.modules) user;
 
   cfg = config.modules.services.docker;
 in {
@@ -18,6 +19,8 @@ in {
   };
 
   config = mkIf cfg.enable {
+    users.users.${user.name}.extraGroups = ["docker"];
+
     virtualisation.docker = {
       enable = true;
       storageDriver = cfg.storageDriver;
