@@ -42,7 +42,7 @@ layout {
     proportion 0.66667
   }
 
-  default-column-width { proportion 0.5; }
+  default-column-width { proportion 0.33333; }
 
   focus-ring {
     width 4
@@ -169,11 +169,11 @@ binds {
   Mod+Ctrl+U         { move-workspace-down; }
   Mod+Ctrl+I         { move-workspace-up; }
 
-  Mod+BracketLeft  { consume-or-expel-window-left; }
-  Mod+BracketRight { consume-or-expel-window-right; }
+  Mod+Comma  { consume-or-expel-window-left; }
+  Mod+Period { consume-or-expel-window-right; }
 
-  Mod+Comma  { consume-window-into-column; }
-  Mod+Period { expel-window-from-column; }
+  Mod+Shift+Comma  { consume-window-into-column; }
+  Mod+Shift+Period { expel-window-from-column; }
 
   Mod+R { switch-preset-column-width; }
   Mod+Shift+R { switch-preset-window-height; }
