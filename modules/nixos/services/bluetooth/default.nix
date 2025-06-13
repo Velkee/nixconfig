@@ -4,22 +4,23 @@
   pkgs,
   ...
 }: let
+  inherit (lib) mkEnableOption mkIf;
+
   cfg = config.modules.services.bluetooth;
-in
-  with lib; {
-    options.modules.services.bluetooth = {
-      enable = mkEnableOption "Enable bluetooth";
+in {
+  options.modules.services.bluetooth = {
+    enable = mkEnableOption "Enable bluetooth";
+  };
+
+  config = mkIf cfg.enable {
+    hardware.bluetooth = {
+      enable = true;
     };
 
-    config = mkIf cfg.enable {
-      hardware.bluetooth = {
-        enable = true;
-      };
+    environment.systemPackages = [
+      pkgs.blueman
+    ];
 
-      environment.systemPackages = [
-        pkgs.blueman
-      ];
-
-      services.blueman.enable = true;
-    };
-  }
+    services.blueman.enable = true;
+  };
+}

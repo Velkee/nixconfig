@@ -3,12 +3,13 @@
   config,
   ...
 }: let
+  inherit (lib) mkIf;
+
   cfg = config.modules.user.shell.starship;
-in
-  with lib; {
-    config = mkIf cfg.enable {
-      programs.starship = {
-        enable = true;
-      };
+in {
+  config = mkIf cfg.enable {
+    programs.starship = {
+      enable = true;
     };
-  }
+  };
+}

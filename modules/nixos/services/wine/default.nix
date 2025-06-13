@@ -4,16 +4,17 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.services.wine;
-in
-  with lib; {
-    options.modules.services.wine = {
-      enable = mkEnableOption "Enable the Wine compatibility layer";
-    };
+  inherit (lib) mkEnableOption mkIf;
 
-    config = mkIf cfg.enable {
-      environment.systemPackages = with pkgs; [
-        wineWowPackages.stable
-      ];
-    };
-  }
+  cfg = config.modules.services.wine;
+in {
+  options.modules.services.wine = {
+    enable = mkEnableOption "Enable the Wine compatibility layer";
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      wineWowPackages.stable
+    ];
+  };
+}

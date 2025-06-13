@@ -200,6 +200,7 @@
 
     dependencies = {
       ripgrep.enable = true;
+      tree-sitter.enable = true;
     };
 
     lsp = {
@@ -211,7 +212,21 @@
         jsonls.enable = true;
         rust_analyzer.enable = true;
         yamlls.enable = true;
-        nixd.enable = true;
+        nil_ls = {
+          enable = true;
+          settings = {
+            nil = {
+              formatting = ["alejandra"];
+            };
+            nix = {
+              maxMemoryMB = null;
+              flake = {
+                autoArchive = true;
+                autoEvalInputs = true;
+              };
+            };
+          };
+        };
         lua_ls.enable = true;
         docker_compose_language_service.enable = true;
       };

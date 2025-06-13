@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; let
+{lib, ...}: let
+  inherit (lib) mapAttrs collect isString mapAttrsRecursive concatStringsSep;
+
   getDir = dir:
     mapAttrs (
       file: type:

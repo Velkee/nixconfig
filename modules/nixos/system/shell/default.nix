@@ -4,22 +4,23 @@
   pkgs,
   ...
 }: let
+  inherit (lib) mkEnableOption mkIf;
+
   cfg = config.modules.system.shell.fish;
-in
-  with lib; {
-    options.modules.system.shell.fish = {
-      enable = mkEnableOption "fish";
+in {
+  options.modules.system.shell.fish = {
+    enable = mkEnableOption "fish";
+  };
+
+  config = mkIf cfg.enable {
+    environment.systemPackages = with pkgs; [
+      fishPlugins.colored-man-pages
+    ];
+
+    programs.fish = {
+      enable = true;
     };
 
-    config = mkIf cfg.enable {
-      environment.systemPackages = with pkgs; [
-        fishPlugins.colored-man-pages
-      ];
-
-      programs.fish = {
-        enable = true;
-      };
-
-      environment.pathsToLink = ["/share/fish"];
-    };
-  }
+    environment.pathsToLink = ["/share/fish"];
+  };
+}

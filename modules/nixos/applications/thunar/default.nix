@@ -4,17 +4,18 @@
   pkgs,
   ...
 }: let
-  cfg = config.modules.applications.thunar;
-in
-  with lib; {
-    options.modules.applications.thunar = {
-      enable = mkEnableOption "Enable thunar file manager";
-    };
+  inherit (lib) mkEnableOption mkIf;
 
-    config = mkIf cfg.enable {
-      programs.thunar = {
-        enable = true;
-        plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
-      };
+  cfg = config.modules.applications.thunar;
+in {
+  options.modules.applications.thunar = {
+    enable = mkEnableOption "Enable thunar file manager";
+  };
+
+  config = mkIf cfg.enable {
+    programs.thunar = {
+      enable = true;
+      plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
     };
-  }
+  };
+}
