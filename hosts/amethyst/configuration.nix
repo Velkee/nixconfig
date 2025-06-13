@@ -12,6 +12,7 @@
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
     time.timeZone = "Europe/Oslo";
+    console.keyMap = "no";
 
     environment.systemPackages = with pkgs; [
       hydrus
