@@ -11,6 +11,10 @@
     system.stateVersion = "24.11";
     boot.kernelPackages = pkgs.linuxPackages_zen;
 
+    services.hardware.bolt.enable = true;
+    time.timeZone = "Europe/Oslo";
+    console.keyMap = "no";
+
     stylix = {
       enable = true;
       image = ../../wallpapers/chuuni-ws.png;
@@ -76,6 +80,7 @@
 
       desktop = {
         sddm.enable = true;
+        niri.enable = true;
         hyprland = {
           enable = true;
           monitor = ["desc:Philips Consumer Electronics Company PHL 499P9, 5120x1440@60, 1920x0, 1, vrr, 2, bitdepth, 10" "eDP-1, 1920x1080@60, 0x0, 1"];
@@ -119,6 +124,8 @@
           storageDriver = "btrfs";
         };
         wine.enable = true;
+        libvirtd.enable = true;
+        k3s.enable = true;
       };
     };
 
