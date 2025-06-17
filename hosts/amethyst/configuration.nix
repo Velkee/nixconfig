@@ -88,6 +88,7 @@
           preload = ["/home/velkee/nix/wallpapers/mizu.png" "/home/velkee/nix/wallpapers/luka.png"];
           wallpaper = ["DP-5,/home/velkee/nix/wallpapers/mizu.png" "DP-6,/home/velkee/nix/wallpapers/luka.png"];
         };
+        hyprsunset.enable = true;
         waybar.enable = true;
       };
 
