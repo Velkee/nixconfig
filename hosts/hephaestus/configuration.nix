@@ -15,6 +15,10 @@
     time.timeZone = "Europe/Oslo";
     console.keyMap = "no";
 
+    networking.hosts = {
+      "192.168.122.2" = ["ipa-1.test.internal"];
+    };
+
     stylix = {
       enable = true;
       image = ../../wallpapers/chuuni-ws.png;
@@ -105,6 +109,7 @@
         };
         firefox.enable = true;
         kitty.enable = true;
+        obsidian.enable = true;
         steam.enable = true;
         syncthing.enable = true;
         thunar.enable = true;
