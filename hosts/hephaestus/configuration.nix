@@ -128,9 +128,13 @@
           enable = true;
           storageDriver = "btrfs";
         };
-        wine.enable = true;
-        libvirtd.enable = true;
         k3s.enable = true;
+        libvirtd.enable = true;
+        udisks2 = {
+          enable = true;
+          udiskie.enable = true;
+        };
+        wine.enable = true;
       };
     };
 
