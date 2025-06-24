@@ -91,6 +91,9 @@ in {
           experimental = {
             xx_color_management_v4 = true;
           };
+          debug = {
+            full_cm_proto = true;
+          };
         };
       };
     };
