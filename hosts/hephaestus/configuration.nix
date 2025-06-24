@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
 
@@ -16,7 +17,7 @@
     console.keyMap = "no";
 
     networking.hosts = {
-      "192.168.122.2" = ["ipa-1.test.internal"];
+      "192.168.122.2" = [ "ipa-1.test.internal" ];
     };
 
     stylix = {
@@ -52,7 +53,7 @@
     modules = {
       user = {
         enable = true;
-        home-manager. enable = true;
+        home-manager.enable = true;
         ssh.enable = true;
         shell.package = pkgs.fish;
       };
@@ -61,7 +62,7 @@
         boot.grub.enable = true;
 
         locale = {
-          extraLocales = ["ja_JP.UTF-8/UTF-8"];
+          extraLocales = [ "ja_JP.UTF-8/UTF-8" ];
         };
 
         fonts.enable = true;
@@ -87,12 +88,21 @@
         niri.enable = true;
         hyprland = {
           enable = true;
-          monitor = ["desc:Philips Consumer Electronics Company PHL 499P9, 5120x1440@60, 1920x0, 1, vrr, 2, bitdepth, 10" "eDP-1, 1920x1080@60, 0x0, 1"];
+          monitor = [
+            "desc:Philips Consumer Electronics Company PHL 499P9, 5120x1440@60, 1920x0, 1, vrr, 2, bitdepth, 10"
+            "eDP-1, 1920x1080@60, 0x0, 1"
+          ];
         };
         hyprpaper = {
           enable = true;
-          preload = ["/home/velkee/nix/wallpapers/chuuni-ws.png" "/home/velkee/nix/wallpapers/ligma.jpg"];
-          wallpaper = ["desc:Philips Consumer Electronics Company PHL 499P9,/home/velkee/nix/wallpapers/chuuni-ws.png" "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"];
+          preload = [
+            "/home/velkee/nix/wallpapers/chuuni-ws.png"
+            "/home/velkee/nix/wallpapers/ligma.jpg"
+          ];
+          wallpaper = [
+            "desc:Philips Consumer Electronics Company PHL 499P9,/home/velkee/nix/wallpapers/chuuni-ws.png"
+            "eDP-1,/home/velkee/nix/wallpapers/ligma.jpg"
+          ];
         };
         waybar.enable = true;
       };
@@ -109,6 +119,7 @@
         };
         firefox.enable = true;
         kitty.enable = true;
+        libreoffice.enable = true;
         obsidian.enable = true;
         steam.enable = true;
         syncthing.enable = true;
@@ -139,22 +150,92 @@
     };
 
     fileSystems = {
-      "/".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/.snapshots".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/home".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/nix".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/opt".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/root".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/srv".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/swap".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/tmp".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/usr/local".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/var".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/var/lib/libvirt/images".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/var/lib/machines".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
-      "/var/tmp".options = ["noatime" "autodefrag" "compress-force=zstd" "commit=120"];
+      "/".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/.snapshots".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/home".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/nix".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/opt".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/root".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/srv".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/swap".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/tmp".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/usr/local".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/var".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/var/lib/libvirt/images".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/var/lib/machines".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
+      "/var/tmp".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
     };
 
-    swapDevices = [{device = "/swap/swapfile";}];
+    swapDevices = [ { device = "/swap/swapfile"; } ];
   };
 }
