@@ -71,6 +71,16 @@
           stylix.nixosModules.stylix
         ];
       };
+      "artemis" = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [
+            ./hosts/artemis/configuration.nix
+            lix-module.nixosModules.default
+            stylix.nixosModules.stylix
+          ];
+        };
     };
 
     formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
