@@ -24,5 +24,8 @@ in {
       pulse.enable = true;
       jack.enable = true;
     };
+    hardware.firmware = with pkgs; [
+      sof-firmware
+    ];
   };
 }
