@@ -15,7 +15,18 @@ in {
   config = mkIf cfg.enable {
     programs.thunar = {
       enable = true;
-      plugins = with pkgs.xfce; [thunar-archive-plugin thunar-volman];
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-volman
+      ];
     };
+
+    environment.systemPackages = with pkgs; [
+      kdePackages.ark
+      unzip
+      p7zip
+      pigz
+      pxz
+    ];
   };
 }

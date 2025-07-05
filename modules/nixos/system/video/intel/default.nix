@@ -3,9 +3,9 @@
   config,
   pkgs,
   ...
-}:
-let
-  inherit (lib)
+}: let
+  inherit
+    (lib)
     mkEnableOption
     mkOption
     types
@@ -14,8 +14,7 @@ let
 
   cfg = config.modules.system.video.intel;
   nvidia = config.modules.system.video.nvidia;
-in
-{
+in {
   options.modules.system.video.intel = {
     enable = mkEnableOption "Enable Intel graphics";
     busId = mkOption {
@@ -31,7 +30,7 @@ in
         intel-media-driver
       ];
     };
-    services.xserver.videoDrivers = [ "modesetting" ];
+    services.xserver.videoDrivers = ["modesetting"];
 
     hardware.nvidia.prime = mkIf nvidia.enable {
       offload = {

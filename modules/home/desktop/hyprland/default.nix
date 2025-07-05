@@ -78,6 +78,10 @@ in {
               output = "current";
             };
           };
+          device = {
+            name = "sony-computer-entertainment-wireless-controller-touchpad";
+            enabled = false;
+          };
           decoration = {
             rounding = 10;
             dim_special = 0.2;

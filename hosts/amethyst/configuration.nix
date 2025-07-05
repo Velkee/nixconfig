@@ -15,9 +15,10 @@
     console.keyMap = "no";
 
     environment.systemPackages = with pkgs; [
-      hydrus
       ryubing
       vulkan-hdr-layer-kwin6
+      kdePackages.gwenview
+      # hydrus
     ];
 
     stylix = {
@@ -83,12 +84,21 @@
         sddm.enable = true;
         hyprland = {
           enable = true;
-          monitor = ["DP-5, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 10" "DP-6, 2560x1440@60, -2560x0, 1"];
+          monitor = [
+            "desc:Samsung Electric Company LC27G5xT HNAT300820, 2560x1440@144, 0x0, 1, vrr, 2, bitdepth, 8"
+            "desc:Lenovo Group Limited L24q-10 U4P04ZP5, 2560x1440@60, -2560x0, 1"
+          ];
         };
         hyprpaper = {
           enable = true;
-          preload = ["/home/velkee/nix/wallpapers/mizu.png" "/home/velkee/nix/wallpapers/luka.png"];
-          wallpaper = ["DP-5,/home/velkee/nix/wallpapers/mizu.png" "DP-6,/home/velkee/nix/wallpapers/luka.png"];
+          preload = [
+            "/home/velkee/nix/wallpapers/mizu.png"
+            "/home/velkee/nix/wallpapers/luka.png"
+          ];
+          wallpaper = [
+            "desc:Samsung Electric Company LC27G5xT HNAT300820,/home/velkee/nix/wallpapers/mizu.png"
+            "desc:Lenovo Group Limited L24q-10 U4P04ZP5,/home/velkee/nix/wallpapers/luka.png"
+          ];
         };
         hyprsunset.enable = true;
         waybar.enable = true;
@@ -129,12 +139,41 @@
     };
 
     fileSystems = {
-      "/".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
-      "/nix".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
-      "/.swap".options = ["noatime" "autodefrag" "commit=120"];
-      "/home".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
-      "/media/games".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
-      "/media/storage".options = ["compress-force=zstd" "noatime" "autodefrag" "commit=120"];
+      "/".options = [
+        "compress-force=zstd"
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
+      "/nix".options = [
+        "compress-force=zstd"
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
+      "/.swap".options = [
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
+      "/home".options = [
+        "compress-force=zstd"
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
+      "/media/games".options = [
+        "compress-force=zstd"
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
+      "/media/storage".options = [
+        "compress-force=zstd"
+        "noatime"
+        "autodefrag"
+        "commit=120"
+      ];
     };
 
     swapDevices = [{device = "/.swap/swapfile";}];

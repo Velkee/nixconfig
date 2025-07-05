@@ -1,4 +1,3 @@
-
 {
   lib,
   config,
@@ -17,7 +16,6 @@ in {
     programs.nix-ld = {
       enable = true;
       libraries = with pkgs; [
-
       ];
     };
   };

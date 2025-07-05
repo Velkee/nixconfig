@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -17,7 +16,7 @@
     console.keyMap = "no";
 
     networking.hosts = {
-      "192.168.122.2" = [ "ipa-1.test.internal" ];
+      "192.168.122.2" = ["ipa-1.test.internal"];
     };
 
     stylix = {
@@ -62,7 +61,7 @@
         boot.grub.enable = true;
 
         locale = {
-          extraLocales = [ "ja_JP.UTF-8/UTF-8" ];
+          extraLocales = ["ja_JP.UTF-8/UTF-8"];
         };
 
         fonts.enable = true;
@@ -236,6 +235,6 @@
       ];
     };
 
-    swapDevices = [ { device = "/swap/swapfile"; } ];
+    swapDevices = [{device = "/swap/swapfile";}];
   };
 }

@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -179,6 +178,6 @@
       ];
     };
 
-    swapDevices = [ { device = "/.swap/swapfile"; } ];
+    swapDevices = [{device = "/.swap/swapfile";}];
   };
 }

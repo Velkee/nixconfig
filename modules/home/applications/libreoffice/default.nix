@@ -3,13 +3,11 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
   cfg = config.modules.applications.libreoffice;
-in
-{
+in {
   options.modules.applications.libreoffice = {
     enable = mkEnableOption "Enable LibreOffice productivity suite";
   };

@@ -4,7 +4,14 @@
   pkgs,
   ...
 }: let
-  inherit (lib) mkEnableOption mkOption mkIf types attrsets;
+  inherit
+    (lib)
+    mkEnableOption
+    mkOption
+    mkIf
+    types
+    attrsets
+    ;
   inherit (config.modules) user;
 
   mpvShaderDir = "${config.home-manager.users.${user.name}.xdg.configHome}/mpv/shaders";
@@ -15,7 +22,11 @@ in {
   options.modules.applications.mpv = {
     enable = mkEnableOption "MPV media player";
     resolution = mkOption {
-      type = types.enum ["1080p" "1440p" "4k"];
+      type = types.enum [
+        "1080p"
+        "1440p"
+        "4k"
+      ];
       default = "1080p";
       description = "Resolution configuration for scaler";
     };
@@ -40,7 +51,7 @@ in {
           vo = "gpu-next";
           gpu-api = "vulkan";
           gpu-context = "waylandvk";
-          hwdec = "auto";
+          hwdec = "nvdec";
 
           audio-file-auto = "fuzzy";
           audio-channels = "stereo";
