@@ -3,11 +3,13 @@
   config,
   pkgs,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.modules.applications.thunar;
-in {
+in
+{
   options.modules.applications.thunar = {
     enable = mkEnableOption "Enable thunar file manager";
   };
@@ -20,6 +22,9 @@ in {
         thunar-volman
       ];
     };
+
+    services.tumbler.enable = true;
+    services.gvfs.enable = true;
 
     environment.systemPackages = with pkgs; [
       kdePackages.ark
