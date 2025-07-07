@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
 
@@ -16,9 +17,8 @@
 
     environment.systemPackages = with pkgs; [
       ryubing
-      vulkan-hdr-layer-kwin6
       kdePackages.gwenview
-      # hydrus
+      hydrus
     ];
 
     stylix = {
@@ -109,12 +109,12 @@
           enable = true;
           resolution = "1440p";
         };
-
         anki.enable = true;
         fcitx5.enable = true;
         firefox.enable = true;
         kitty.enable = true;
         obsidian.enable = true;
+        osu-lazer.enable = true;
         steam.enable = true;
         syncthing.enable = true;
         thunar.enable = true;
@@ -176,6 +176,6 @@
       ];
     };
 
-    swapDevices = [{device = "/.swap/swapfile";}];
+    swapDevices = [ { device = "/.swap/swapfile"; } ];
   };
 }
