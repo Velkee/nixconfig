@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
 
@@ -17,7 +16,6 @@
 
     environment.systemPackages = with pkgs; [
       ryubing
-      kdePackages.gwenview
       hydrus
     ];
 
@@ -112,6 +110,7 @@
         anki.enable = true;
         fcitx5.enable = true;
         firefox.enable = true;
+        gwenview.enable = true;
         kitty.enable = true;
         obsidian.enable = true;
         osu-lazer.enable = true;
@@ -176,6 +175,6 @@
       ];
     };
 
-    swapDevices = [ { device = "/.swap/swapfile"; } ];
+    swapDevices = [{device = "/.swap/swapfile";}];
   };
 }
