@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
 
@@ -122,6 +123,7 @@
           enable = true;
         };
         firefox.enable = true;
+        gwenview.enable = true;
         kitty.enable = true;
         libreoffice.enable = true;
         obsidian.enable = true;
@@ -178,6 +180,6 @@
       ];
     };
 
-    swapDevices = [{device = "/.swap/swapfile";}];
+    swapDevices = [ { device = "/.swap/swapfile"; } ];
   };
 }
