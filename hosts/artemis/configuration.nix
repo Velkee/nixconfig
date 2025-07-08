@@ -178,6 +178,12 @@
         "autodefrag"
         "commit=120"
       ];
+      "/media/storage".options = [
+        "noatime"
+        "autodefrag"
+        "compress-force=zstd"
+        "commit=120"
+      ];
     };
 
     swapDevices = [ { device = "/.swap/swapfile"; } ];
