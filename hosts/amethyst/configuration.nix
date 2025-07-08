@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./hardware-configuration.nix
 
@@ -112,6 +113,7 @@
         firefox.enable = true;
         gwenview.enable = true;
         kitty.enable = true;
+        krita.enable = true;
         obsidian.enable = true;
         osu-lazer.enable = true;
         steam.enable = true;
@@ -175,6 +177,6 @@
       ];
     };
 
-    swapDevices = [{device = "/.swap/swapfile";}];
+    swapDevices = [ { device = "/.swap/swapfile"; } ];
   };
 }
