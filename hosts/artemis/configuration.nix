@@ -125,6 +125,7 @@
         firefox.enable = true;
         gwenview.enable = true;
         kitty.enable = true;
+        krita.enable = true;
         libreoffice.enable = true;
         obsidian.enable = true;
         steam.enable = true;
