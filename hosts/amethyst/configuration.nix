@@ -16,8 +16,11 @@
     console.keyMap = "no";
 
     environment.systemPackages = with pkgs; [
+      vulkan-hdr-layer-kwin6
       ryubing
       hydrus
+      calibre
+      starsector
     ];
 
     stylix = {
@@ -99,7 +102,6 @@
             "desc:Lenovo Group Limited L24q-10 U4P04ZP5,/home/velkee/nix/wallpapers/luka.png"
           ];
         };
-        hyprsunset.enable = true;
         waybar.enable = true;
       };
 
@@ -116,6 +118,7 @@
         krita.enable = true;
         obsidian.enable = true;
         osu-lazer.enable = true;
+        prismlauncher.enable = true;
         steam.enable = true;
         syncthing.enable = true;
         thunar.enable = true;
