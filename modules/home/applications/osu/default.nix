@@ -3,14 +3,12 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
 
   cfg = config.modules.applications.osu-lazer;
-in
-{
+in {
   options.modules.applications.osu-lazer = {
     enable = mkEnableOption "Enable osu-lazer";
   };

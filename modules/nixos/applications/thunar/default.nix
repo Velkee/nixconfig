@@ -3,13 +3,11 @@
   config,
   pkgs,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
 
   cfg = config.modules.applications.thunar;
-in
-{
+in {
   options.modules.applications.thunar = {
     enable = mkEnableOption "Enable thunar file manager";
   };

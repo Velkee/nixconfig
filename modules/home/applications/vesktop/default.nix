@@ -2,13 +2,11 @@
   lib,
   config,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
   cfg = config.modules.applications.vesktop;
-in
-{
+in {
   options.modules.applications.vesktop = {
     enable = mkEnableOption "Enable Vesktop, the Discord client";
   };

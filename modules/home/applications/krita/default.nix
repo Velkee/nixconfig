@@ -3,14 +3,12 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
 
   cfg = config.modules.applications.krita;
-in
-{
+in {
   options.modules.applications.krita = {
     enable = mkEnableOption "Enable Krita";
   };

@@ -57,7 +57,7 @@
         };
         modules = [
           ./hosts/amethyst/configuration.nix
-          lix-module.nixosModules.default
+          # lix-module.nixosModules.default
           stylix.nixosModules.stylix
         ];
       };
@@ -84,18 +84,20 @@
     };
 
     formatter = forEachSupportedSystem ({pkgs}: pkgs.alejandra);
-    devShells = forEachSupportedSystem ({pkgs}: {
-      default = with pkgs;
-        mkShell {
-          buildInputs = [
-            nil
-            alejandra
-          ];
+    devShells = forEachSupportedSystem (
+      {pkgs}: {
+        default = with pkgs;
+          mkShell {
+            buildInputs = [
+              nil
+              alejandra
+            ];
 
-          shellHook = ''
-            fish
-          '';
-        };
-    });
+            shellHook = ''
+              fish
+            '';
+          };
+      }
+    );
   };
 }

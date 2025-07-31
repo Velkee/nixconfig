@@ -3,14 +3,12 @@
   config,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
 
   cfg = config.modules.applications.gwenview;
-in
-{
+in {
   options.modules.applications.gwenview = {
     enable = mkEnableOption "Enable Gwenview image viewer";
   };
