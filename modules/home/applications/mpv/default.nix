@@ -3,9 +3,9 @@
   config,
   pkgs,
   ...
-}: let
-  inherit
-    (lib)
+}:
+let
+  inherit (lib)
     mkEnableOption
     mkOption
     mkIf
@@ -18,7 +18,8 @@
   SSimDownscaler = "${mpvShaderDir}/SSimDownscaler.glsl";
   ArtCNN = "${mpvShaderDir}/ArtCNN_C4F16.glsl";
   cfg = config.modules.applications.mpv;
-in {
+in
+{
   options.modules.applications.mpv = {
     enable = mkEnableOption "MPV media player";
     resolution = mkOption {
@@ -108,37 +109,35 @@ in {
             autoclip_method = "clipboard";
 
             snapshot_format = "avif";
+            snapshot_quality = 100;
           };
         };
         profiles = {
-          "4k" =
-            {
-              profile-desc = "4k";
-              profile-cond = "(width <=3840 and height ==2160)";
-              deband = "no";
-            }
-            // attrsets.optionalAttrs (cfg.resolution != "4k") {
-              glsl-shader = SSimDownscaler;
-            };
-          "1440p" =
-            {
-              profile-desc = "1440p";
-              profile-cond = "(width <=2560 and height ==1440)";
-            }
-            // attrsets.optionalAttrs (cfg.resolution == "4k") {
-              glsl-shader = ArtCNN;
-            }
-            // attrsets.optionalAttrs (cfg.resolution == "1080p") {
-              glsl-shader = SSimDownscaler;
-            };
-          full-hd =
-            {
-              profile-desc = "full-hd";
-              profile-cond = "(width <=1920 and height ==1080)";
-            }
-            // attrsets.optionalAttrs (cfg.resolution != "1080p") {
-              glsl-shader = ArtCNN;
-            };
+          "4k" = {
+            profile-desc = "4k";
+            profile-cond = "(width <=3840 and height ==2160)";
+            deband = "no";
+          }
+          // attrsets.optionalAttrs (cfg.resolution != "4k") {
+            glsl-shader = SSimDownscaler;
+          };
+          "1440p" = {
+            profile-desc = "1440p";
+            profile-cond = "(width <=2560 and height ==1440)";
+          }
+          // attrsets.optionalAttrs (cfg.resolution == "4k") {
+            glsl-shader = ArtCNN;
+          }
+          // attrsets.optionalAttrs (cfg.resolution == "1080p") {
+            glsl-shader = SSimDownscaler;
+          };
+          full-hd = {
+            profile-desc = "full-hd";
+            profile-cond = "(width <=1920 and height ==1080)";
+          }
+          // attrsets.optionalAttrs (cfg.resolution != "1080p") {
+            glsl-shader = ArtCNN;
+          };
           hd = {
             profile-desc = "hd";
             profile-cond = "(width <=1280 and height ==720)";
@@ -162,28 +161,34 @@ in {
           url = "https://pastebin.com/raw/yacMe6EZ";
           sha256 = "1lf0kqb3yxgrx56v5171y3rkgm9wc4bpxibyz7q8f5v5252bdjyx";
         };
-        "mpv/shaders/CfL_Predictions.glsl".source = let
-          fetch = fetchFromGitHub {
-            owner = "Artoriuz";
-            repo = "glsl-chroma-from-luma-prediction";
-            rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
-            hash = "sha256-sbvFg8985gHZyYvbz0JEYVewBwXLb8kRja3a1LCZBnw=";
-          };
-        in "${fetch}/CfL_Prediction.glsl";
-        "mpv/shaders/ArtCNN_C4F16.glsl".source = let
-          fetch = fetchFromGitHub {
-            owner = "Artoriuz";
-            repo = "ArtCNN";
-            rev = "v1.3.0";
-            hash = "sha256-D1FVz4v5RUgNqnmmgjQ7DDQyZZFFVHQsBNyXJ4Sft7s=";
-          };
-        in "${fetch}/GLSL/ArtCNN_C4F16.glsl";
-        "mpv/shaders/SSimDownscaler.glsl".source = let
-          fetch = builtins.fetchGit {
-            url = "https://gist.github.com/36508af3ffc84410fe39761d6969be10.git";
-            rev = "38992bce7f9ff844f800820df0908692b65bb74a";
-          };
-        in "${fetch}/SSimDownscaler.glsl";
+        "mpv/shaders/CfL_Predictions.glsl".source =
+          let
+            fetch = fetchFromGitHub {
+              owner = "Artoriuz";
+              repo = "glsl-chroma-from-luma-prediction";
+              rev = "9fdd0bc68cd8ae42a8072a7d5d098f118daa4293";
+              hash = "sha256-sbvFg8985gHZyYvbz0JEYVewBwXLb8kRja3a1LCZBnw=";
+            };
+          in
+          "${fetch}/CfL_Prediction.glsl";
+        "mpv/shaders/ArtCNN_C4F16.glsl".source =
+          let
+            fetch = fetchFromGitHub {
+              owner = "Artoriuz";
+              repo = "ArtCNN";
+              rev = "v1.3.0";
+              hash = "sha256-D1FVz4v5RUgNqnmmgjQ7DDQyZZFFVHQsBNyXJ4Sft7s=";
+            };
+          in
+          "${fetch}/GLSL/ArtCNN_C4F16.glsl";
+        "mpv/shaders/SSimDownscaler.glsl".source =
+          let
+            fetch = builtins.fetchGit {
+              url = "https://gist.github.com/36508af3ffc84410fe39761d6969be10.git";
+              rev = "38992bce7f9ff844f800820df0908692b65bb74a";
+            };
+          in
+          "${fetch}/SSimDownscaler.glsl";
       };
 
       home.packages = with pkgs; [
