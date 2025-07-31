@@ -2,11 +2,13 @@
   lib,
   config,
   ...
-}: let
+}:
+let
   inherit (lib) mkEnableOption mkIf;
   inherit (config.modules) user;
   cfg = config.modules.applications.vesktop;
-in {
+in
+{
   options.modules.applications.vesktop = {
     enable = mkEnableOption "Enable Vesktop, the Discord client";
   };
@@ -15,23 +17,6 @@ in {
     home-manager.users.${user.name} = {
       programs.vesktop = {
         enable = true;
-        vencord.settings.plugins = {
-          TextReplace = {
-            enabled = true;
-            regexRules = [
-              {
-                find = "(?<!https?:\/\/.*)([Nn])([Aa])/g";
-                replace = "$1y$2";
-                onlyIfIncludes = "";
-              }
-              {
-                find = "(?<!https?:\/\/.*)NyA/g";
-                replace = "NYA";
-                onlyIfIncludes = "";
-              }
-            ];
-          };
-        };
       };
       xdg.desktopEntries = {
         vesktop = {
