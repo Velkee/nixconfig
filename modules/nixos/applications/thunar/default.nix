@@ -32,6 +32,7 @@ in
       p7zip
       pigz
       pxz
+      unrar
     ];
   };
 }
